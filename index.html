@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>مجتمع السيطرة المهنية | Laboratory Specialists Community</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=Tajawal:wght@400;500;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F3EEE0;
+    --paper-line:#DCD3B8;
+    --navy:#152238;
+    --navy-2:#22344F;
+    --red:#D7263D;
+    --red-deep:#A81B2E;
+    --ink:#1B1B18;
+    --muted:#6B6455;
+    --gold:#C9A227;
+    --white:#FBFAF5;
+  }
+
+  *{box-sizing:border-box;margin:0;padding:0;}
+
+  html{scroll-behavior:smooth;}
+
+  body{
+    background-color:var(--paper);
+    background-image:
+      linear-gradient(var(--paper-line) 1px, transparent 1px),
+      linear-gradient(90deg, var(--paper-line) 1px, transparent 1px);
+    background-size:28px 28px;
+    color:var(--ink);
+    font-family:'IBM Plex Sans Arabic','Tajawal',sans-serif;
+    line-height:1.7;
+    overflow-x:hidden;
+  }
+
+  ::selection{background:var(--red);color:var(--white);}
+
+  a{color:inherit;text-decoration:none;}
+
+  .mono{
+    font-family:'IBM Plex Mono',monospace;
+    letter-spacing:.04em;
+  }
+
+  .wrap{
+    max-width:1080px;
+    margin:0 auto;
+    padding:0 28px;
+  }
+
+  /* ===== letterhead / hero ===== */
+
+  header.hero{
+    border-bottom:3px solid var(--navy);
+    padding-top:26px;
+  }
+
+  .letterhead-bar{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    font-family:'IBM Plex Mono',monospace;
+    font-size:12px;
+    color:var(--muted);
+    padding-bottom:14px;
+    border-bottom:1px solid var(--paper-line);
+    flex-wrap:wrap;
+    gap:8px;
+  }
+
+  .letterhead-bar span{white-space:nowrap;}
+
+  .ticks{
+    display:flex;
+    gap:3px;
+    align-items:flex-end;
+    height:16px;
+  }
+  .ticks i{
+    display:block;
+    width:3px;
+    background:var(--navy);
+    opacity:.65;
+  }
+
+  .hero-main{
+    padding:52px 0 60px;
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-end;
+    gap:32px;
+    flex-wrap:wrap;
+  }
+
+  .hero-title{
+    font-family:'Tajawal',sans-serif;
+    font-weight:800;
+    font-size:clamp(34px,5.4vw,58px);
+    line-height:1.12;
+    color:var(--navy);
+    max-width:760px;
+  }
+
+  .hero-title em{
+    font-style:normal;
+    color:var(--red);
+  }
+
+  .hero-tagline{
+    margin-top:18px;
+    font-size:17px;
+    color:var(--muted);
+    max-width:560px;
+  }
+
+  .specimen-tag{
+    flex-shrink:0;
+    border:1.5px solid var(--navy);
+    background:var(--white);
+    padding:14px 16px;
+    min-width:200px;
+    position:relative;
+  }
+  .specimen-tag::before{
+    content:"";
+    position:absolute;
+    top:-1.5px; bottom:-1.5px; right:-8px;
+    width:8px;
+    background:repeating-linear-gradient(180deg, var(--red) 0 4px, transparent 4px 8px);
+  }
+  .specimen-tag .row{
+    display:flex;
+    justify-content:space-between;
+    font-family:'IBM Plex Mono',monospace;
+    font-size:11px;
+    color:var(--muted);
+    padding:3px 0;
+    border-bottom:1px dotted var(--paper-line);
+  }
+  .specimen-tag .row:last-child{border-bottom:none;}
+  .specimen-tag .row b{color:var(--navy);font-weight:600;}
+
+  /* ===== nav cta ===== */
+
+  .cta-row{
+    display:flex;
+    gap:14px;
+    margin-top:30px;
+    flex-wrap:wrap;
+  }
+
+  .btn{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    padding:13px 26px;
+    font-weight:600;
+    font-size:15px;
+    border:1.5px solid var(--navy);
+    transition:transform .15s ease, background .15s ease, color .15s ease;
+  }
+  .btn-primary{
+    background:var(--red);
+    border-color:var(--red);
+    color:var(--white);
+  }
+  .btn-primary:hover{background:var(--red-deep);border-color:var(--red-deep);transform:translateY(-1px);}
+  .btn-ghost{
+    background:transparent;
+    color:var(--navy);
+  }
+  .btn-ghost:hover{background:var(--navy);color:var(--white);transform:translateY(-1px);}
+
+  /* ===== section shared ===== */
+
+  section{padding:64px 0;}
+
+  .section-head{
+    display:flex;
+    align-items:baseline;
+    gap:14px;
+    margin-bottom:34px;
+  }
+  .section-head .code{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:12px;
+    color:var(--red);
+    border:1px solid var(--red);
+    padding:2px 8px;
+  }
+  .section-head h2{
+    font-family:'Tajawal',sans-serif;
+    font-weight:700;
+    font-size:26px;
+    color:var(--navy);
+  }
+  .section-head .rule{
+    flex:1;
+    height:1px;
+    background:var(--paper-line);
+  }
+
+  /* ===== about ===== */
+
+  .about-grid{
+    display:grid;
+    grid-template-columns:1.3fr 1fr;
+    gap:40px;
+  }
+  .about-text p{
+    font-size:16px;
+    color:var(--ink);
+    max-width:60ch;
+  }
+  .about-text p + p{margin-top:14px;}
+
+  .stat-block{
+    border-top:2px solid var(--navy);
+    padding-top:16px;
+  }
+  .stat-block .num{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:34px;
+    font-weight:600;
+    color:var(--navy);
+  }
+  .stat-block .label{
+    font-size:13px;
+    color:var(--muted);
+    margin-top:4px;
+  }
+  .stat-block + .stat-block{margin-top:26px;}
+
+  /* ===== pillars ===== */
+
+  .pillars{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:1px;
+    background:var(--navy);
+    border:1px solid var(--navy);
+  }
+  .pillar{
+    background:var(--paper);
+    padding:26px 22px;
+    min-height:190px;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+  }
+  .pillar .mark{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:12px;
+    color:var(--red);
+  }
+  .pillar h3{
+    font-family:'Tajawal',sans-serif;
+    font-size:17px;
+    font-weight:700;
+    color:var(--navy);
+    margin-top:26px;
+  }
+  .pillar p{
+    font-size:13.5px;
+    color:var(--muted);
+    margin-top:8px;
+  }
+
+  /* ===== tiers (specimen labels) ===== */
+
+  .tiers{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:22px;
+  }
+  .tier-label{
+    background:var(--white);
+    border:1.5px solid var(--navy);
+    position:relative;
+    padding-bottom:18px;
+  }
+  .tier-label .strip{
+    background:var(--navy);
+    color:var(--white);
+    padding:10px 16px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    font-family:'IBM Plex Mono',monospace;
+    font-size:11px;
+  }
+  .tier-label.featured .strip{background:var(--red);}
+  .tier-label .barcode{
+    display:flex;
+    gap:2px;
+    height:18px;
+    margin:14px 16px 0;
+  }
+  .tier-label .barcode i{
+    background:var(--ink);
+    display:block;
+  }
+  .tier-label h3{
+    font-family:'Tajawal',sans-serif;
+    font-size:20px;
+    font-weight:700;
+    color:var(--navy);
+    padding:14px 16px 6px;
+  }
+  .tier-label p{
+    font-size:13.5px;
+    color:var(--muted);
+    padding:0 16px;
+  }
+  .tier-label ul{
+    list-style:none;
+    padding:14px 16px 0;
+    font-size:13px;
+  }
+  .tier-label li{
+    padding:5px 0;
+    border-top:1px dotted var(--paper-line);
+    display:flex;
+    gap:8px;
+  }
+  .tier-label li::before{
+    content:"—";
+    color:var(--red);
+    flex-shrink:0;
+  }
+
+  /* ===== focus tags ===== */
+
+  .tags{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+  }
+  .tag{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:13px;
+    padding:8px 14px;
+    border:1px solid var(--navy);
+    color:var(--navy);
+    background:var(--white);
+  }
+  .tag b{color:var(--red);font-weight:600;}
+
+  /* ===== join / footer ===== */
+
+  .join{
+    background:var(--navy);
+    color:var(--white);
+    background-image:
+      linear-gradient(rgba(255,255,255,.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,.04) 1px, transparent 1px);
+    background-size:28px 28px;
+  }
+  .join .wrap{
+    padding:70px 28px;
+    text-align:center;
+  }
+  .join h2{
+    font-family:'Tajawal',sans-serif;
+    font-size:clamp(26px,4vw,38px);
+    font-weight:800;
+  }
+  .join h2 em{font-style:normal;color:var(--red);}
+  .join p{
+    color:#C7CEDB;
+    max-width:52ch;
+    margin:16px auto 30px;
+    font-size:15.5px;
+  }
+  .join .cta-row{justify-content:center;}
+  .join .btn-ghost{
+    border-color:var(--white);
+    color:var(--white);
+  }
+  .join .btn-ghost:hover{background:var(--white);color:var(--navy);}
+
+  footer{
+    padding:26px 0;
+    font-family:'IBM Plex Mono',monospace;
+    font-size:11.5px;
+    color:var(--muted);
+    display:flex;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:8px;
+  }
+
+  @media (max-width:820px){
+    .about-grid{grid-template-columns:1fr;}
+    .pillars{grid-template-columns:repeat(2,1fr);}
+    .tiers{grid-template-columns:1fr;}
+    .hero-main{align-items:flex-start;}
+  }
+  @media (max-width:520px){
+    .pillars{grid-template-columns:1fr;}
+    .letterhead-bar{font-size:10px;}
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    *{transition:none !important; scroll-behavior:auto !important;}
+  }
+
+  a:focus-visible, button:focus-visible{
+    outline:2px solid var(--red);
+    outline-offset:3px;
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="letterhead-bar">
+      <span class="mono">REF / LAB-COMMUNITY-2026</span>
+      <div class="ticks" aria-hidden="true">
+        <i style="height:6px"></i><i style="height:12px"></i><i style="height:8px"></i>
+        <i style="height:16px"></i><i style="height:5px"></i><i style="height:11px"></i>
+        <i style="height:14px"></i><i style="height:7px"></i>
+      </div>
+      <span class="mono">GULF REGION · KSA</span>
+    </div>
+
+    <div class="hero-main">
+      <div>
+        <h1 class="hero-title">مجتمع <em>السيطرة</em> المهنية<br>لأخصائيي المختبرات الطبية</h1>
+        <p class="hero-tagline">
+          مساحة مهنية لأخصائيي المختبرات في بنوك الدم، التوافق النسيجي، والطب الجيني السريري
+          في منطقة الخليج — للنقاش العلمي، وبناء شبكة معرفية، ومتابعة كل ما هو جديد في التشخيص المخبري.
+        </p>
+        <div class="cta-row">
+          <a href="https://www.linkedin.com/in/laboratory-abdullah" class="btn btn-primary" target="_blank" rel="noopener">انضم عبر LinkedIn</a>
+          <a href="#pillars" class="btn btn-ghost">تعرّف على المجتمع</a>
+        </div>
+      </div>
+
+      <div class="specimen-tag">
+        <div class="row"><span>SPECIALTY</span><b>Blood Bank / HLA</b></div>
+        <div class="row"><span>SCOPE</span><b>Clinical Genomics</b></div>
+        <div class="row"><span>REGION</span><b>GCC</b></div>
+        <div class="row"><span>STATUS</span><b>Open Enrollment</b></div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <section id="about">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="code">01</span>
+        <h2>عن المجتمع</h2>
+        <div class="rule"></div>
+      </div>
+      <div class="about-grid">
+        <div class="about-text">
+          <p>
+            وُلد هذا المجتمع من فجوة حقيقية: أخصائيو المختبرات الطبية في الخليج يملكون خبرة تقنية عميقة،
+            لكنهم غالبًا بلا مساحة مهنية موحّدة لتبادل هذه الخبرة — لا في الأتمتة المخبرية، ولا في
+            الجينوم السريري، ولا في مقاومة مضادات الميكروبات.
+          </p>
+          <p>
+            نجمع أخصائيي المختبرات، الباحثين، وطلاب الدراسات العليا في مكان واحد، بمحتوى علمي دقيق،
+            ونقاشات مهنية جادة، وفرص تعاون بحثي حقيقية.
+          </p>
+        </div>
+        <div>
+          <div class="stat-block">
+            <div class="num">03</div>
+            <div class="label">مسارات تخصصية رئيسية: بنوك الدم · HLA · الجينوم السريري</div>
+          </div>
+          <div class="stat-block">
+            <div class="num">AR / EN</div>
+            <div class="label">محتوى بالعربية بمصطلحات تقنية إنجليزية</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="pillars">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="code">02</span>
+        <h2>ركائز المجتمع</h2>
+        <div class="rule"></div>
+      </div>
+      <div class="pillars">
+        <div class="pillar">
+          <span class="mark">PILLAR / A</span>
+          <div>
+            <h3>محتوى علمي موثوق</h3>
+            <p>مقالات وتحليلات مبنية على مصادر علمية، بمعايير أكاديمية واضحة.</p>
+          </div>
+        </div>
+        <div class="pillar">
+          <span class="mark">PILLAR / B</span>
+          <div>
+            <h3>شبكة مهنية</h3>
+            <p>تواصل مباشر بين أخصائيي المختبرات والأطباء والباحثين في المنطقة.</p>
+          </div>
+        </div>
+        <div class="pillar">
+          <span class="mark">PILLAR / C</span>
+          <div>
+            <h3>تطوير مستمر</h3>
+            <p>ورش، شهادات، ومسارات مهنية موجهة نحو التخصص الدقيق والقيادة العلمية.</p>
+          </div>
+        </div>
+        <div class="pillar">
+          <span class="mark">PILLAR / D</span>
+          <div>
+            <h3>حوكمة واضحة</h3>
+            <p>هيكل عضوية ولجان محددة، بأخلاقيات ومعايير حماية بيانات معتمدة.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="tiers">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="code">03</span>
+        <h2>مستويات العضوية</h2>
+        <div class="rule"></div>
+      </div>
+      <div class="tiers">
+        <div class="tier-label">
+          <div class="strip"><span>TIER 01</span><span>عام</span></div>
+          <div class="barcode" aria-hidden="true">
+            <i style="width:2px"></i><i style="width:4px"></i><i style="width:1px"></i>
+            <i style="width:3px"></i><i style="width:2px"></i><i style="width:5px"></i>
+            <i style="width:1px"></i><i style="width:3px"></i>
+          </div>
+          <h3>عضو</h3>
+          <p>لكل أخصائي وطالب مختبرات طبية يرغب بمتابعة المحتوى والمشاركة في النقاشات.</p>
+          <ul>
+            <li>الوصول لكامل المحتوى العلمي</li>
+            <li>المشاركة في النقاشات المفتوحة</li>
+          </ul>
+        </div>
+        <div class="tier-label featured">
+          <div class="strip"><span>TIER 02</span><span>فعّال</span></div>
+          <div class="barcode" aria-hidden="true">
+            <i style="width:3px"></i><i style="width:1px"></i><i style="width:4px"></i>
+            <i style="width:2px"></i><i style="width:1px"></i><i style="width:4px"></i>
+            <i style="width:2px"></i><i style="width:3px"></i>
+          </div>
+          <h3>مساهم</h3>
+          <p>لمن يرغب بالمساهمة بمحتوى أو المشاركة في اللجان العلمية والتحريرية.</p>
+          <ul>
+            <li>نشر محتوى موقّع باسمك</li>
+            <li>عضوية في لجنة متخصصة</li>
+            <li>أولوية في الورش والفعاليات</li>
+          </ul>
+        </div>
+        <div class="tier-label">
+          <div class="strip"><span>TIER 03</span><span>استشاري</span></div>
+          <div class="barcode" aria-hidden="true">
+            <i style="width:1px"></i><i style="width:5px"></i><i style="width:2px"></i>
+            <i style="width:1px"></i><i style="width:3px"></i><i style="width:1px"></i>
+            <i style="width:4px"></i><i style="width:2px"></i>
+          </div>
+          <h3>مستشار علمي</h3>
+          <p>لأصحاب الخبرة العميقة الراغبين بتوجيه المحتوى ودعم الأعضاء الجدد.</p>
+          <ul>
+            <li>مقعد في مجلس الحوكمة</li>
+            <li>مراجعة المحتوى العلمي</li>
+            <li>إرشاد أكاديمي ومهني</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="focus">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="code">04</span>
+        <h2>مجالات التركيز</h2>
+        <div class="rule"></div>
+      </div>
+      <div class="tags">
+        <span class="tag"><b>NGS</b> · التسلسل الجيني</span>
+        <span class="tag"><b>HLA</b> · التوافق النسيجي</span>
+        <span class="tag"><b>AMR</b> · مقاومة مضادات الميكروبات</span>
+        <span class="tag"><b>TLA</b> · أتمتة المختبرات الشاملة</span>
+        <span class="tag"><b>LIMS</b> · أنظمة إدارة معلومات المختبر</span>
+        <span class="tag"><b>WGS</b> · تسلسل الجينوم الكامل</span>
+        <span class="tag">بنوك الدم والتوافق</span>
+        <span class="tag">الطب الجيني السريري</span>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<div class="join">
+  <div class="wrap">
+    <h2>جاهز تنضم <em>للمجتمع</em>؟</h2>
+    <p>ابدأ بالتواصل عبر LinkedIn، وكن جزءًا من أول شبكة مهنية موحّدة لأخصائيي المختبرات الطبية في الخليج.</p>
+    <div class="cta-row">
+      <a href="https://www.linkedin.com/in/laboratory-abdullah" class="btn btn-primary" target="_blank" rel="noopener">انضم الآن</a>
+      <a href="#about" class="btn btn-ghost">اقرأ المزيد</a>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="wrap" style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;">
+    <span>© 2026 مجتمع السيطرة المهنية</span>
+    <span>Riyadh, Saudi Arabia</span>
+  </div>
+</footer>
+
+</body>
+</html>
