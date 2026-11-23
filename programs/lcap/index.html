@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="برنامج التمكين المهني للكفاءات المخبرية من مجتمع السيطرة المهنية. تطوير الهوية المهنية والسيرة الذاتية والاستعداد للفرص والمقابلات.">
+  <title>برنامج التمكين المهني للكفاءات المخبرية | LCAP</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=Tajawal:wght@500;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{--red:#c6283d;--red2:#9f1d30;--ink:#182b3d;--muted:#5d6b78;--blue:#e7f3fa;--blue2:#cfe8f5;--white:#fff;--line:#dce5eb;--bg:#f7fafc}
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;background:var(--bg);color:var(--ink);font-family:"IBM Plex Sans Arabic",sans-serif;line-height:1.8}
+    a{color:inherit;text-decoration:none}
+    .wrap{width:min(1120px,92%);margin:auto}
+    .top{border-bottom:1px solid var(--line);background:#fff}
+    .top .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:15px 0;flex-wrap:wrap}
+    .brand{font-weight:700;color:var(--red)}
+    .brand small{display:block;color:var(--muted);font-weight:500;font-size:12px;direction:ltr;text-align:right}
+    nav{display:flex;gap:18px;flex-wrap:wrap;font-size:14px;color:var(--muted)}
+    nav a:hover{color:var(--red)}
+    .hero{padding:74px 0 58px;background:linear-gradient(135deg,#fff 0%,#fff 55%,var(--blue) 100%);border-bottom:1px solid var(--line)}
+    .eyebrow{display:inline-block;background:var(--blue);color:var(--ink);border:1px solid var(--blue2);padding:5px 13px;border-radius:30px;font-size:13px;font-weight:600}
+    h1,h2,h3{font-family:"Tajawal",sans-serif;line-height:1.25}
+    h1{font-size:clamp(36px,6vw,62px);margin:20px 0 7px;max-width:850px}
+    h1 span{color:var(--red)}
+    .english{direction:ltr;text-align:right;font-weight:600;color:var(--muted);letter-spacing:.04em;font-size:15px}
+    .lead{font-size:18px;color:var(--muted);max-width:760px;margin:22px 0}
+    .actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+    .btn{display:inline-flex;align-items:center;justify-content:center;padding:12px 22px;border:1px solid var(--red);background:var(--red);color:#fff;border-radius:8px;font-weight:700;cursor:pointer}
+    .btn:hover{background:var(--red2)}
+    .btn.secondary{background:#fff;color:var(--red)}
+    .meta{display:flex;gap:12px;flex-wrap:wrap;margin-top:32px}
+    .meta div{background:#fff;border:1px solid var(--line);padding:10px 15px;border-radius:9px;min-width:150px}
+    .meta b{display:block;font-size:14px}
+    .meta span{display:block;color:var(--muted);font-size:12px}
+    section{padding:58px 0}
+    .section-head{display:flex;align-items:end;justify-content:space-between;gap:18px;margin-bottom:26px;flex-wrap:wrap}
+    .section-head h2{font-size:31px;margin:0}
+    .section-head p{margin:0;color:var(--muted);max-width:600px}
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    .card{background:#fff;border:1px solid var(--line);border-radius:13px;padding:22px}
+    .card .num{display:inline-grid;place-items:center;width:34px;height:34px;border-radius:50%;background:var(--blue);color:var(--red);font-weight:700;margin-bottom:10px}
+    .card h3{margin:0 0 7px;font-size:21px}
+    .card p{margin:0;color:var(--muted);font-size:14px}
+    .journey{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+    .step{border-top:3px solid var(--red);background:#fff;border-radius:8px;padding:16px;border-left:1px solid var(--line);border-right:1px solid var(--line);border-bottom:1px solid var(--line)}
+    .step b{display:block;margin-bottom:5px}
+    .step span{font-size:13px;color:var(--muted)}
+    .criteria{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    .criterion{background:#fff;border:1px solid var(--line);border-radius:10px;padding:15px}
+    .criterion .line{display:flex;justify-content:space-between;gap:10px;font-weight:600;font-size:14px}
+    .bar{height:7px;border-radius:20px;background:#edf2f5;margin-top:10px;overflow:hidden}
+    .bar i{display:block;height:100%;background:var(--red);border-radius:20px}
+    .notice{background:var(--blue);border:1px solid var(--blue2);padding:18px 20px;border-radius:12px;color:var(--ink);margin-top:20px}
+    .form-shell{background:#fff;border:1px solid var(--line);border-radius:14px;padding:26px}
+    .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:15px}
+    label{display:block;font-weight:600;font-size:14px;margin-bottom:6px}
+    input,select,textarea{width:100%;border:1px solid #ccd7df;border-radius:8px;padding:11px 12px;font:inherit;background:#fff;color:var(--ink)}
+    textarea{min-height:105px;resize:vertical}
+    .full{grid-column:1/-1}
+    .consent{display:flex;align-items:flex-start;gap:10px;color:var(--muted);font-size:13px}
+    .consent input{width:auto;margin-top:7px}
+    .form-foot{display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap;margin-top:18px}
+    .form-state{color:var(--red);font-size:13px;font-weight:600}
+    .disclaimer{font-size:13px;color:var(--muted)}
+    footer{padding:26px 0;background:#fff;border-top:1px solid var(--line);color:var(--muted);font-size:13px}
+    footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+    @media(max-width:800px){.grid{grid-template-columns:1fr 1fr}.journey{grid-template-columns:1fr 1fr}}
+    @media(max-width:600px){.grid,.journey,.criteria,.form-grid{grid-template-columns:1fr}.hero{padding:48px 0}.section-head h2{font-size:26px}.form-shell{padding:17px}}
+  </style>
+</head>
+<body>
+  <div class="top">
+    <div class="wrap">
+      <div class="brand">مجتمع السيطرة المهنية <small>PROFESSIONAL MASTERY COMMUNITY</small></div>
+      <nav>
+        <a href="#about">عن البرنامج</a>
+        <a href="#journey">رحلة التطوير</a>
+        <a href="#selection">معايير القبول</a>
+        <a href="#apply">نموذج التقديم</a>
+      </nav>
+    </div>
+  </div>
+
+  <header class="hero">
+    <div class="wrap">
+      <span class="eyebrow">قبول انتقائي | الدفعة التأسيسية</span>
+      <h1>برنامج <span>التمكين المهني</span><br>للكفاءات المخبرية</h1>
+      <div class="english">LABORATORY CAREER ADVANCEMENT PROGRAM · LCAP</div>
+      <p class="lead">رحلة تطوير عملية تساعد المتخصصين في علوم المختبرات الطبية والاختبارات والتخصصات المخبرية على بناء حضور مهني واضح، وتقديم خبراتهم بصورة أقوى، والاستعداد للوصول إلى فرص مهنية أكثر ملاءمة.</p>
+      <div class="actions">
+        <a class="btn" href="#apply">استعراض نموذج التقديم</a>
+        <a class="btn secondary" href="#journey">اكتشف مراحل البرنامج</a>
+      </div>
+      <div class="meta">
+        <div><b>8 أسابيع</b><span>تطوير وتطبيق عملي</span></div>
+        <div><b>30 و60 يوماً</b><span>متابعة بعد نهاية البرنامج</span></div>
+        <div><b>اختيار تنافسي</b><span>وفق أهلية ومعايير موحدة</span></div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section id="about">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>من تطوير الملف إلى إدارة المسار</h2>
+          <p>البرنامج لا يقتصر على تعديل السيرة الذاتية؛ بل يربط الهوية المهنية بالمهارات والفرص وخطة التنفيذ.</p>
+        </div>
+        <div class="grid">
+          <article class="card"><span class="num">01</span><h3>هوية مهنية مقنعة</h3><p>تطوير LinkedIn والعنوان المهني والملخص والخبرات والكلمات المفتاحية، مع إبراز الإنجازات الحقيقية.</p></article>
+          <article class="card"><span class="num">02</span><h3>سيرة ذاتية موجّهة</h3><p>إعداد سيرة واضحة ومخصصة للأدوار المستهدفة، مع تحويل المسؤوليات إلى نتائج وأدلة قابلة للتحقق.</p></article>
+          <article class="card"><span class="num">03</span><h3>فرص وشبكات مهنية</h3><p>بناء قائمة أدوار وجهات مناسبة، وتحسين التواصل المهني، وتنظيم متابعة الفرص والطلبات.</p></article>
+          <article class="card"><span class="num">04</span><h3>الاستعداد للمقابلات</h3><p>تدريب عملي على المقابلات السلوكية والفنية، وتحضير قصص الإنجاز وأسئلة المقابلة.</p></article>
+          <article class="card"><span class="num">05</span><h3>متابعة قابلة للقياس</h3><p>تحديد خط أساس ومراجعة التقدم والمهام والعوائق ومواعيد المتابعة طوال الرحلة.</p></article>
+          <article class="card"><span class="num">06</span><h3>خطة استمرار</h3><p>خطة فردية لما بعد البرنامج، مع مراجعة التقدم بعد 30 و60 يوماً.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="journey" style="background:#eef6fa">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>رحلة التطوير</h2>
+          <p>ثمانية أسابيع من التقييم إلى التطبيق، ثم متابعة الأثر بعد انتهاء البرنامج.</p>
+        </div>
+        <div class="journey">
+          <div class="step"><b>الأسبوع 1 · التقييم</b><span>خط أساس للملف المهني، تحديد الأهداف، وتحليل الفجوات.</span></div>
+          <div class="step"><b>الأسبوع 2 · LinkedIn</b><span>صياغة الهوية المهنية وبناء صفحة تعكس القيمة الفعلية.</span></div>
+          <div class="step"><b>الأسبوع 3 · CV</b><span>بناء سيرة موجهة للأدوار المستهدفة ومراجعتها.</span></div>
+          <div class="step"><b>الأسبوع 4 · المسار</b><span>اختيار عائلات وظيفية وتجهيز أدلة الإنجاز والملف المهني.</span></div>
+          <div class="step"><b>الأسبوع 5 · الشبكات</b><span>تحديد الجهات المناسبة وكتابة رسائل تواصل مخصصة.</span></div>
+          <div class="step"><b>الأسبوع 6 · المقابلات</b><span>تدريب تجريبي وتحسين الإجابات والاستعداد للمقابلات.</span></div>
+          <div class="step"><b>الأسبوع 7 · التطبيق</b><span>تنظيم التقديمات ومتابعة الفرص وتحديث سجل الإنجاز.</span></div>
+          <div class="step"><b>الأسبوع 8 · القياس</b><span>مقارنة قبل/بعد وإعداد خطة عمل فردية للمرحلة التالية.</span></div>
+        </div>
+        <div class="notice"><b>المتابعة بعد البرنامج:</b> مراجعة أولى بعد 30 يوماً، ومراجعة ثانية بعد 60 يوماً لتحديث حالة الفرص والمقابلات والتطور المهني.</div>
+      </div>
+    </section>
+
+    <section id="selection">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>من يمكنه التقديم؟</h2>
+          <p>البرنامج موجّه للمتخصصين والمهتمين مهنياً في علوم المختبرات الطبية والاختبارات والتخصصات المخبرية ذات الصلة.</p>
+        </div>
+        <div class="grid" style="margin-bottom:24px">
+          <article class="card"><h3>ملاءمة التخصص</h3><p>خلفية تعليمية أو مهنية مرتبطة بالمختبرات الطبية أو التشخيص أو الاختبارات أو مسار مخبري قريب.</p></article>
+          <article class="card"><h3>الالتزام</h3><p>الاستعداد لتخصيص نحو 4–5 ساعات أسبوعياً، وإكمال المهام وحضور المتابعات.</p></article>
+          <article class="card"><h3>الاستعداد للتطوير</h3><p>وجود هدف مهني واضح نسبياً، وقبول التقييم والملاحظات والعمل على التحسين.</p></article>
+        </div>
+        <h3 style="font-size:23px;margin:26px 0 15px">معايير المفاضلة</h3>
+        <div class="criteria">
+          <div class="criterion"><div class="line"><span>ملاءمة التخصص</span><span>15%</span></div><div class="bar"><i style="width:15%"></i></div></div>
+          <div class="criterion"><div class="line"><span>وضوح الهدف المهني</span><span>10%</span></div><div class="bar"><i style="width:10%"></i></div></div>
+          <div class="criterion"><div class="line"><span>الأدلة والإمكانات الحالية</span><span>10%</span></div><div class="bar"><i style="width:10%"></i></div></div>
+          <div class="criterion"><div class="line"><span>الالتزام والوقت</span><span>20%</span></div><div class="bar"><i style="width:20%"></i></div></div>
+          <div class="criterion"><div class="line"><span>قابلية التطور والتعلم</span><span>15%</span></div><div class="bar"><i style="width:15%"></i></div></div>
+          <div class="criterion"><div class="line"><span>التواصل والمشاركة</span><span>10%</span></div><div class="bar"><i style="width:10%"></i></div></div>
+          <div class="criterion"><div class="line"><span>الجاهزية الحالية للملف المهني</span><span>10%</span></div><div class="bar"><i style="width:10%"></i></div></div>
+          <div class="criterion"><div class="line"><span>مقابلة/محادثة الاختيار</span><span>10%</span></div><div class="bar"><i style="width:10%"></i></div></div>
+        </div>
+        <div class="notice">تُراجع الأهلية أولاً، ثم تُقيّم الطلبات وفق الأوزان المعلنة. لا يعني استيفاء الحد الأدنى ضمان القبول؛ فالاختيار تنافسي ويرتبط بجودة الطلب والطاقة الاستيعابية.</div>
+      </div>
+    </section>
+
+    <section id="apply" style="background:#eef6fa">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>نموذج التقديم</h2>
+          <p>هذه نسخة معاينة لحقول النموذج. سيتم فتح استقبال الطلبات بعد ربط قناة آمنة لمعالجة البيانات والملفات.</p>
+        </div>
+        <div class="form-shell">
+          <form id="applicationForm">
+            <div class="form-grid">
+              <div><label for="fullName">الاسم الكامل</label><input id="fullName" name="fullName" required placeholder="الاسم كما تفضّل ظهوره مهنياً"></div>
+              <div><label for="email">البريد الإلكتروني</label><input id="email" name="email" type="email" required placeholder="name@example.com"></div>
+              <div><label for="phone">رقم التواصل</label><input id="phone" name="phone" type="tel" required placeholder="رقم يمكن التواصل عبره"></div>
+              <div><label for="city">المدينة</label><input id="city" name="city" required placeholder="المدينة الحالية"></div>
+              <div><label for="degree">المؤهل/المرحلة التعليمية</label><input id="degree" name="degree" required placeholder="مثال: بكالوريوس علوم المختبرات الطبية"></div>
+              <div><label for="specialty">التخصص الدقيق</label><select id="specialty" name="specialty" required><option value="">اختر</option><option>علوم المختبرات الطبية</option><option>بنوك الدم ونقل الدم</option><option>الأحياء الدقيقة</option><option>الكيمياء السريرية</option><option>أمراض الدم والتخثر</option><option>الأحياء الجزيئية/الجينوم</option><option>الأنسجة والخلايا</option><option>الجودة والتشغيل المخبري</option><option>اختبارات/تشخيص مخبري آخر</option></select></div>
+              <div><label for="experience">سنوات الخبرة</label><select id="experience" name="experience"><option>طالب/ـة أو حديث تخرج</option><option>أقل من سنتين</option><option>2–5 سنوات</option><option>أكثر من 5 سنوات</option></select></div>
+              <div><label for="status">وضعك المهني الحالي</label><select id="status" name="status"><option>طالب/ـة</option><option>حديث تخرج</option><option>على رأس العمل</option><option>باحث عن فرصة</option><option>أرغب في تغيير المسار</option></select></div>
+              <div class="full"><label for="linkedin">رابط LinkedIn</label><input id="linkedin" name="linkedin" type="url" placeholder="https://www.linkedin.com/in/..."></div>
+              <div class="full"><label for="cv">رابط السيرة الذاتية (اختياري في هذه المرحلة)</label><input id="cv" name="cv" type="url" placeholder="رابط خاص يمكن فتحه من فريق المراجعة"></div>
+              <div class="full"><label for="target">ما الأدوار أو المسارات المهنية التي تستهدفها؟</label><textarea id="target" name="target" required placeholder="اذكر نوع الوظائف أو الجهات أو المسارات التي ترغب في الوصول إليها."></textarea></div>
+              <div class="full"><label for="motivation">لماذا ترغب في الانضمام؟ وما أهم جانب تريد تطويره؟</label><textarea id="motivation" name="motivation" required placeholder="اكتب إجابة واضحة ومختصرة."></textarea></div>
+              <div class="full"><label class="consent"><input type="checkbox" required><span>أقر بصحة المعلومات، وأوافق على استخدامها لغرض تقييم طلبي والتواصل بشأن البرنامج فقط. وأفهم أن مشاركة ملفي مع أي جهة توظيف تحتاج إلى موافقة مستقلة مني.</span></label></div>
+            </div>
+            <div class="form-foot">
+              <button class="btn" type="submit">اختبار النموذج</button>
+              <span class="form-state" id="formState" role="status">المعاينة فقط — استقبال الطلبات غير مفعّل حالياً.</span>
+            </div>
+          </form>
+        </div>
+        <p class="disclaimer" style="margin-top:16px">لا يوجد ضمان بالحصول على وظيفة أو مقابلة. يركّز البرنامج على رفع الجاهزية المهنية وجودة أدوات البحث عن الفرص. لا تدخل معلومات حساسة في نسخة المعاينة؛ لا يتم إرسال البيانات أو حفظها من هذه الصفحة.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <span>مجتمع السيطرة المهنية | Professional Mastery Community</span>
+      <span>Laboratory Career Advancement Program · LCAP</span>
+    </div>
+  </footer>
+  <script>
+    document.getElementById("applicationForm").addEventListener("submit", function(event){
+      event.preventDefault();
+      document.getElementById("formState").textContent = "هذه نسخة معاينة فقط. لم يتم إرسال أي بيانات أو حفظها. سيتم فتح التقديم بعد ربط قناة استقبال آمنة.";
+      document.getElementById("formState").scrollIntoView({behavior:"smooth",block:"center"});
+    });
+  </script>
+</body>
+</html>
