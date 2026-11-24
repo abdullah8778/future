@@ -108,7 +108,7 @@ function showStep(index){
 }
 function consent(name,label,required){const l=el("label",{class:"check"}),i=el("input",{type:"checkbox",name,required:required?"required":""}),s=el("span",{},label);l.append(i,s);return l}
 function sourceMeta(){const q=new URLSearchParams(location.search);return {utm_source:q.get("utm_source")||"",utm_medium:q.get("utm_medium")||"",utm_campaign:q.get("utm_campaign")||"",ref:q.get("ref")||document.referrer||""}}
-$("intake").addEventListener("submit",async e=>{e.preventDefault();const f=e.currentTarget;if(!f.reportValidity())return;
+$("intake").addEventListener("submit",async e=>{e.preventDefault();const f=e.currentTarget;const requiredConsent=f.querySelector("#consents input[required]");if(requiredConsent&&!requiredConsent.checked){requiredConsent.reportValidity();return;}
 const data=Object.fromEntries(new FormData(f).entries());data.formType=current;data.formUrl=location.href;data.sourceMeta=JSON.stringify(sourceMeta());data.language="ar";
 data.consent_external_provider=f.elements.consentProvider?.checked?"yes":"no";data.consent_processing=f.elements.consentProcessing?.checked?"yes":"no";data.consent_contact=f.elements.consentContact?.checked?"yes":"no";data.consent_testimonial=f.elements.consentStory?.checked?"yes":"no";
 data._honey=data.website||"";delete data.website;const submittedAt=new Date();
