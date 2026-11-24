@@ -30,7 +30,7 @@ nav{display:flex;gap:18px;flex-wrap:wrap}nav a{color:#fff;text-decoration:none;f
 <button type="button" data-form="feedback">05 · تقييم البرنامج<span>رأيك وتجربتك</span></button>
 </aside>
 <section class="card" aria-live="polite"><h2 id="formTitle">طلب الانضمام</h2><p class="sub" id="formIntro"></p>
-<div class="notice">لا ترسل بيانات صحية أو طبية أو أرقام هوية أو معلومات مرضى. لا يوجد ضمان بالقبول أو الحصول على مقابلة أو وظيفة. لا تطلب البوابة رفع سيرة ذاتية في مرحلة التقديم الأولي.</div>
+<div class="notice">عند الإرسال، تُعالج بيانات النموذج عبر FormSubmit لإيصالها إلى بريد إدارة PMC، وتشير وثائق الخدمة إلى الاحتفاظ بالطلبات لمدة تصل إلى 30 يوماً. راجع <a href="privacy.html">إشعار الخصوصية</a>. لا ترسل بيانات صحية أو طبية أو أرقام هوية أو معلومات مرضى. لا يوجد ضمان بالقبول أو الحصول على مقابلة أو وظيفة، ولا يوجد رفع سيرة ذاتية في مرحلة التقديم الأولي.</div>
 <form id="intake" novalidate><div id="fields" class="grid"></div>
 <div class="hp" aria-hidden="true"><label for="website">اترك هذا الحقل فارغاً</label><input id="website" name="website" tabindex="-1" autocomplete="off"></div>
 <div class="consents" id="consents"></div>
@@ -59,16 +59,16 @@ function render(){const d=definitions[current];$("formTitle").textContent=d.titl
 d.fields.forEach(([name,label,type,required,opts])=>{const box=el("div",{class:type==="textarea"?"field full":"field"}),id="f_"+name,l=el("label",{for:id},label);let input;
 if(type==="select"){input=el("select",{id,name});if(required)input.required=true;input.append(el("option",{value:""},"اختر"));opts.split("|").forEach(v=>input.append(el("option",{value:v},v)))}else if(type==="textarea"){input=el("textarea",{id,name});if(required)input.required=true}else{input=el("input",{id,name,type});if(required)input.required=true;if(type==="number"){input.min=name==="week"?"1":"0";input.max=name==="confidence"?"5":"1000"}}
 box.append(l,input);$("fields").append(box)});
-$("consents").replaceChildren();if(current==="application"){const h=el("strong",{},"الموافقات");$("consents").append(h,consent("consentProcessing","أوافق على معالجة بياناتي لغرض إدارة طلبي والبرنامج.",true),consent("consentContact","أوافق على التواصل معي عبر البريد أو WhatsApp بشأن البرنامج.",true),consent("consentStory","أوافق اختيارياً على استخدام تجربة مشاركتي كشهادة أو دراسة حالة بعد مراجعة واعتماد النص قبل النشر.",false))}
-else if(current==="discovery")$("consents").append(consent("consentContact","أوافق على التواصل معي لترتيب المحادثة التعريفية.",true));
-else $("consents").append(consent("consentProcessing","أوافق على استخدام هذه المعلومات لغرض إدارة البرنامج وتحسينه.",true));
+$("consents").replaceChildren();if(current==="application"){const h=el("strong",{},"الموافقات");$("consents").append(h,consent("consentProvider","أوافق على معالجة بيانات هذا النموذج عبر FormSubmit لإيصاله إلى بريد إدارة PMC، وفق إشعار الخصوصية.",true),consent("consentProcessing","أوافق على معالجة بياناتي لغرض إدارة طلبي والبرنامج.",true),consent("consentContact","أوافق على التواصل معي عبر البريد أو WhatsApp بشأن البرنامج.",true),consent("consentStory","أوافق اختيارياً على استخدام تجربة مشاركتي كشهادة أو دراسة حالة بعد مراجعة واعتماد النص قبل النشر.",false))}
+else if(current==="discovery")$("consents").append(consent("consentProvider","أوافق على معالجة بيانات هذا النموذج عبر FormSubmit لإيصاله إلى بريد إدارة PMC، وفق إشعار الخصوصية.",true),consent("consentContact","أوافق على التواصل معي لترتيب المحادثة التعريفية.",true));
+else $("consents").append(consent("consentProvider","أوافق على معالجة بيانات هذا النموذج عبر FormSubmit لإيصاله إلى بريد إدارة PMC، وفق إشعار الخصوصية.",true),consent("consentProcessing","أوافق على استخدام هذه المعلومات لغرض إدارة البرنامج وتحسينه.",true));
 $("status").textContent="";$("intake").reset();}
 function consent(name,label,required){const l=el("label",{class:"check"}),i=el("input",{type:"checkbox",name,required:required?"required":""}),s=el("span",{},label);l.append(i,s);return l}
 $("navforms").addEventListener("click",e=>{const b=e.target.closest("button[data-form]");if(!b)return;current=b.dataset.form;document.querySelectorAll("#navforms button").forEach(x=>x.setAttribute("aria-current",String(x===b)));render()});
 function sourceMeta(){const q=new URLSearchParams(location.search);return {utm_source:q.get("utm_source")||"",utm_medium:q.get("utm_medium")||"",utm_campaign:q.get("utm_campaign")||"",ref:q.get("ref")||document.referrer||""}}
 $("intake").addEventListener("submit",async e=>{e.preventDefault();const f=e.currentTarget;if(!f.reportValidity())return;
 const data=Object.fromEntries(new FormData(f).entries());data.formType=current;data.formUrl=location.href;data.sourceMeta=JSON.stringify(sourceMeta());data.language="ar";
-data.consent_processing=f.elements.consentProcessing?.checked?"yes":"no";data.consent_contact=f.elements.consentContact?.checked?"yes":"no";data.consent_testimonial=f.elements.consentStory?.checked?"yes":"no";
+data.consent_external_provider=f.elements.consentProvider?.checked?"yes":"no";data.consent_processing=f.elements.consentProcessing?.checked?"yes":"no";data.consent_contact=f.elements.consentContact?.checked?"yes":"no";data.consent_testimonial=f.elements.consentStory?.checked?"yes":"no";
 data._honey=data.website||"";delete data.website;data._subject="PMC LCAP | "+definitions[current].title;data._template="table";if(data.email)data._replyto=data.email;
 $("submit").disabled=true;$("status").textContent="جارٍ إرسال الطلب…";
 try{const response=await fetch(CONFIG.emailEndpoint,{method:"POST",headers:{"Content-Type":"application/json","Accept":"application/json"},body:JSON.stringify(data)});const result=await response.json();
