@@ -1,218 +1,97 @@
 <!doctype html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="برنامج التمكين المهني للكفاءات المخبرية من مجتمع السيطرة المهنية. تطوير الهوية المهنية والسيرة الذاتية والاستعداد للفرص والمقابلات.">
-  <title>برنامج التمكين المهني للكفاءات المخبرية | LCAP</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=Tajawal:wght@500;700;800&display=swap" rel="stylesheet">
-  <style>
-    :root{--red:#c6283d;--red2:#9f1d30;--ink:#182b3d;--muted:#5d6b78;--blue:#e7f3fa;--blue2:#cfe8f5;--white:#fff;--line:#dce5eb;--bg:#f7fafc}
-    *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
-    body{margin:0;background:var(--bg);color:var(--ink);font-family:"IBM Plex Sans Arabic",sans-serif;line-height:1.8}
-    a{color:inherit;text-decoration:none}
-    .wrap{width:min(1120px,92%);margin:auto}
-    .top{border-bottom:1px solid var(--line);background:#fff}
-    .top .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:15px 0;flex-wrap:wrap}
-    .brand{font-weight:700;color:var(--red)}
-    .brand small{display:block;color:var(--muted);font-weight:500;font-size:12px;direction:ltr;text-align:right}
-    nav{display:flex;gap:18px;flex-wrap:wrap;font-size:14px;color:var(--muted)}
-    nav a:hover{color:var(--red)}
-    .hero{padding:74px 0 58px;background:linear-gradient(135deg,#fff 0%,#fff 55%,var(--blue) 100%);border-bottom:1px solid var(--line)}
-    .eyebrow{display:inline-block;background:var(--blue);color:var(--ink);border:1px solid var(--blue2);padding:5px 13px;border-radius:30px;font-size:13px;font-weight:600}
-    h1,h2,h3{font-family:"Tajawal",sans-serif;line-height:1.25}
-    h1{font-size:clamp(36px,6vw,62px);margin:20px 0 7px;max-width:850px}
-    h1 span{color:var(--red)}
-    .english{direction:ltr;text-align:right;font-weight:600;color:var(--muted);letter-spacing:.04em;font-size:15px}
-    .lead{font-size:18px;color:var(--muted);max-width:760px;margin:22px 0}
-    .actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
-    .btn{display:inline-flex;align-items:center;justify-content:center;padding:12px 22px;border:1px solid var(--red);background:var(--red);color:#fff;border-radius:8px;font-weight:700;cursor:pointer}
-    .btn:hover{background:var(--red2)}
-    .btn.secondary{background:#fff;color:var(--red)}
-    .meta{display:flex;gap:12px;flex-wrap:wrap;margin-top:32px}
-    .meta div{background:#fff;border:1px solid var(--line);padding:10px 15px;border-radius:9px;min-width:150px}
-    .meta b{display:block;font-size:14px}
-    .meta span{display:block;color:var(--muted);font-size:12px}
-    section{padding:58px 0}
-    .section-head{display:flex;align-items:end;justify-content:space-between;gap:18px;margin-bottom:26px;flex-wrap:wrap}
-    .section-head h2{font-size:31px;margin:0}
-    .section-head p{margin:0;color:var(--muted);max-width:600px}
-    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-    .card{background:#fff;border:1px solid var(--line);border-radius:13px;padding:22px}
-    .card .num{display:inline-grid;place-items:center;width:34px;height:34px;border-radius:50%;background:var(--blue);color:var(--red);font-weight:700;margin-bottom:10px}
-    .card h3{margin:0 0 7px;font-size:21px}
-    .card p{margin:0;color:var(--muted);font-size:14px}
-    .journey{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
-    .step{border-top:3px solid var(--red);background:#fff;border-radius:8px;padding:16px;border-left:1px solid var(--line);border-right:1px solid var(--line);border-bottom:1px solid var(--line)}
-    .step b{display:block;margin-bottom:5px}
-    .step span{font-size:13px;color:var(--muted)}
-    .criteria{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-    .criterion{background:#fff;border:1px solid var(--line);border-radius:10px;padding:15px}
-    .criterion .line{display:flex;justify-content:space-between;gap:10px;font-weight:600;font-size:14px}
-    .bar{height:7px;border-radius:20px;background:#edf2f5;margin-top:10px;overflow:hidden}
-    .bar i{display:block;height:100%;background:var(--red);border-radius:20px}
-    .notice{background:var(--blue);border:1px solid var(--blue2);padding:18px 20px;border-radius:12px;color:var(--ink);margin-top:20px}
-    .form-shell{background:#fff;border:1px solid var(--line);border-radius:14px;padding:26px}
-    .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:15px}
-    label{display:block;font-weight:600;font-size:14px;margin-bottom:6px}
-    input,select,textarea{width:100%;border:1px solid #ccd7df;border-radius:8px;padding:11px 12px;font:inherit;background:#fff;color:var(--ink)}
-    textarea{min-height:105px;resize:vertical}
-    .full{grid-column:1/-1}
-    .consent{display:flex;align-items:flex-start;gap:10px;color:var(--muted);font-size:13px}
-    .consent input{width:auto;margin-top:7px}
-    .form-foot{display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap;margin-top:18px}
-    .form-state{color:var(--red);font-size:13px;font-weight:600}
-    .disclaimer{font-size:13px;color:var(--muted)}
-    footer{padding:26px 0;background:#fff;border-top:1px solid var(--line);color:var(--muted);font-size:13px}
-    footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
-    @media(max-width:800px){.grid{grid-template-columns:1fr 1fr}.journey{grid-template-columns:1fr 1fr}}
-    @media(max-width:600px){.grid,.journey,.criteria,.form-grid{grid-template-columns:1fr}.hero{padding:48px 0}.section-head h2{font-size:26px}.form-shell{padding:17px}}
-  </style>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#0B1424">
+<meta name="description" content="بوابة مجتمع السيطرة المهنية: طلب الانضمام للدفعات والتسجيل لحضور ورشة المسار المهني.">
+<title>بوابة مجتمع السيطرة المهنية | PMC</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#081321;--panel:#101f33;--panel2:#142943;--navy:#0B2545;--red:#D7263D;--red2:#a91e32;--blue:#8ec9e8;--text:#f4f7fb;--muted:#a9b7c8;--line:#263c56;--good:#8ed7b0}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;min-height:100vh;background:radial-gradient(ellipse at 85% 0%,#163454 0,transparent 42%),radial-gradient(ellipse at 0% 80%,#321b31 0,transparent 34%),var(--bg);color:var(--text);font:16px/1.8 "Tajawal",sans-serif}
+button,input,select,textarea{font:inherit}button{cursor:pointer}a{color:var(--blue)}.wrap{width:min(760px,92%);margin:auto}
+header{padding:24px 0;border-bottom:1px solid #ffffff13}.brand{display:flex;align-items:center;gap:12px;font-weight:800}.mark{width:38px;height:38px;display:grid;place-items:center;background:var(--red);border-radius:12px;font-family:"IBM Plex Mono";font-size:17px}.brand small{display:block;color:var(--muted);font:11px "IBM Plex Mono";direction:ltr;letter-spacing:.08em}
+main{padding:58px 0 80px}.eyebrow{color:var(--blue);font:11px "IBM Plex Mono";letter-spacing:.15em;text-transform:uppercase}.hero{text-align:center;margin-bottom:34px}.hero h1{font-size:clamp(32px,6vw,48px);line-height:1.25;margin:12px 0}.hero h1 span{color:var(--red)}.hero p{color:var(--muted);max-width:540px;margin:0 auto}
+.choices{display:grid;grid-template-columns:1fr 1fr;gap:14px}.choice{position:relative;text-align:right;padding:24px;background:linear-gradient(145deg,#152b45,#0e1b2d);border:1px solid var(--line);border-radius:18px;color:var(--text);transition:.25s;min-height:190px}.choice:hover{transform:translateY(-4px);border-color:var(--blue);box-shadow:0 14px 38px #0005}.choice .n{font:11px "IBM Plex Mono";color:var(--red)}.choice h2{font-size:23px;margin:14px 0 4px}.choice p{margin:0;color:var(--muted);font-size:14px}.arrow{position:absolute;left:22px;bottom:20px;color:var(--blue);font-size:22px}
+.panel{display:none;background:linear-gradient(150deg,#142943,#0d1a2b);border:1px solid var(--line);border-radius:20px;padding:clamp(20px,5vw,34px);box-shadow:0 24px 70px #0005}.panel.show{display:block;animation:rise .38s ease both}@keyframes rise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}.panel h2{margin:0 0 4px;font-size:26px}.muted{color:var(--muted);font-size:14px}.progress{height:4px;background:#ffffff16;border-radius:9px;overflow:hidden;margin:24px 0 10px}.progress i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--red),var(--blue));transition:width .35s}.counter{color:var(--muted);font:11px "IBM Plex Mono";margin-bottom:22px}.question{animation:rise .28s ease both}.question label{display:block;font-size:20px;font-weight:700;margin-bottom:13px}.question input,.question select,.question textarea{width:100%;padding:15px 16px;border:1px solid #39516d;border-radius:12px;background:#091727;color:var(--text);outline:none}.question input:focus,.question select:focus,.question textarea:focus{border-color:var(--blue);box-shadow:0 0 0 3px #8ec9e822}.question input::placeholder,.question textarea::placeholder{color:#74869b}.question textarea{min-height:115px;resize:vertical}.buttons{display:flex;gap:10px;margin-top:24px}.btn{border:0;border-radius:11px;padding:12px 22px;font-weight:700}.primary{background:var(--red);color:white;flex:1}.primary:hover{background:var(--red2)}.secondary{background:#ffffff10;color:var(--text);border:1px solid var(--line)}.consent{display:flex;gap:10px;align-items:flex-start;margin-top:20px;color:var(--muted);font-size:13px}.consent input{margin-top:7px;accent-color:var(--red)}.status{margin-top:16px;color:var(--good);font-weight:600}.backlink{display:inline-block;margin-top:18px;text-decoration:none;color:var(--blue);font-size:14px}.notice{border:1px solid #ffffff17;background:#ffffff08;padding:12px 14px;border-radius:12px;color:var(--muted);font-size:13px;margin-top:18px}.hp{position:absolute;left:-9999px}
+footer{text-align:center;color:#71849b;font-size:12px;padding:20px;border-top:1px solid #ffffff12}
+@media(max-width:560px){main{padding-top:38px}.choices{grid-template-columns:1fr}.choice{min-height:155px}.buttons .btn{padding:12px 16px}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+</style>
 </head>
 <body>
-  <div class="top">
-    <div class="wrap">
-      <div class="brand">مجتمع السيطرة المهنية <small>PROFESSIONAL MASTERY COMMUNITY</small></div>
-      <nav>
-        <a href="#about">عن البرنامج</a>
-        <a href="#journey">رحلة التطوير</a>
-        <a href="#selection">معايير القبول</a>
-        <a href="#apply">نموذج التقديم</a>
-      </nav>
-    </div>
-  </div>
-
-  <header class="hero">
-    <div class="wrap">
-      <span class="eyebrow">قبول انتقائي | الدفعة التأسيسية</span>
-      <h1>برنامج <span>التمكين المهني</span><br>للكفاءات المخبرية</h1>
-      <div class="english">LABORATORY CAREER ADVANCEMENT PROGRAM · LCAP</div>
-      <p class="lead">رحلة تطوير عملية تساعد المتخصصين في علوم المختبرات الطبية والاختبارات والتخصصات المخبرية على بناء حضور مهني واضح، وتقديم خبراتهم بصورة أقوى، والاستعداد للوصول إلى فرص مهنية أكثر ملاءمة.</p>
-      <div class="actions">
-        <a class="btn" href="portal.html">فتح بوابة النماذج</a>
-        <a class="btn secondary" href="#journey">اكتشف مراحل البرنامج</a>
-      </div>
-      <div class="meta">
-        <div><b>8 أسابيع</b><span>تطوير وتطبيق عملي</span></div>
-        <div><b>30 و60 يوماً</b><span>متابعة بعد نهاية البرنامج</span></div>
-        <div><b>اختيار تنافسي</b><span>وفق أهلية ومعايير موحدة</span></div>
-      </div>
-    </div>
-  </header>
-
-  <main>
-    <section id="about">
-      <div class="wrap">
-        <div class="section-head">
-          <h2>من تطوير الملف إلى إدارة المسار</h2>
-          <p>البرنامج لا يقتصر على تعديل السيرة الذاتية؛ بل يربط الهوية المهنية بالمهارات والفرص وخطة التنفيذ.</p>
-        </div>
-        <div class="grid">
-          <article class="card"><span class="num">01</span><h3>هوية مهنية مقنعة</h3><p>تطوير LinkedIn والعنوان المهني والملخص والخبرات والكلمات المفتاحية، مع إبراز الإنجازات الحقيقية.</p></article>
-          <article class="card"><span class="num">02</span><h3>سيرة ذاتية موجّهة</h3><p>إعداد سيرة واضحة ومخصصة للأدوار المستهدفة، مع تحويل المسؤوليات إلى نتائج وأدلة قابلة للتحقق.</p></article>
-          <article class="card"><span class="num">03</span><h3>فرص وشبكات مهنية</h3><p>بناء قائمة أدوار وجهات مناسبة، وتحسين التواصل المهني، وتنظيم متابعة الفرص والطلبات.</p></article>
-          <article class="card"><span class="num">04</span><h3>الاستعداد للمقابلات</h3><p>تدريب عملي على المقابلات السلوكية والفنية، وتحضير قصص الإنجاز وأسئلة المقابلة.</p></article>
-          <article class="card"><span class="num">05</span><h3>متابعة قابلة للقياس</h3><p>تحديد خط أساس ومراجعة التقدم والمهام والعوائق ومواعيد المتابعة طوال الرحلة.</p></article>
-          <article class="card"><span class="num">06</span><h3>خطة استمرار</h3><p>خطة فردية لما بعد البرنامج، مع مراجعة التقدم بعد 30 و60 يوماً.</p></article>
-        </div>
-      </div>
-    </section>
-
-    <section id="journey" style="background:#eef6fa">
-      <div class="wrap">
-        <div class="section-head">
-          <h2>رحلة التطوير</h2>
-          <p>ثمانية أسابيع من التقييم إلى التطبيق، ثم متابعة الأثر بعد انتهاء البرنامج.</p>
-        </div>
-        <div class="journey">
-          <div class="step"><b>الأسبوع 1 · التقييم</b><span>خط أساس للملف المهني، تحديد الأهداف، وتحليل الفجوات.</span></div>
-          <div class="step"><b>الأسبوع 2 · LinkedIn</b><span>صياغة الهوية المهنية وبناء صفحة تعكس القيمة الفعلية.</span></div>
-          <div class="step"><b>الأسبوع 3 · CV</b><span>بناء سيرة موجهة للأدوار المستهدفة ومراجعتها.</span></div>
-          <div class="step"><b>الأسبوع 4 · المسار</b><span>اختيار عائلات وظيفية وتجهيز أدلة الإنجاز والملف المهني.</span></div>
-          <div class="step"><b>الأسبوع 5 · الشبكات</b><span>تحديد الجهات المناسبة وكتابة رسائل تواصل مخصصة.</span></div>
-          <div class="step"><b>الأسبوع 6 · المقابلات</b><span>تدريب تجريبي وتحسين الإجابات والاستعداد للمقابلات.</span></div>
-          <div class="step"><b>الأسبوع 7 · التطبيق</b><span>تنظيم التقديمات ومتابعة الفرص وتحديث سجل الإنجاز.</span></div>
-          <div class="step"><b>الأسبوع 8 · القياس</b><span>مقارنة قبل/بعد وإعداد خطة عمل فردية للمرحلة التالية.</span></div>
-        </div>
-        <div class="notice"><b>المتابعة بعد البرنامج:</b> مراجعة أولى بعد 30 يوماً، ومراجعة ثانية بعد 60 يوماً لتحديث حالة الفرص والمقابلات والتطور المهني.</div>
-      </div>
-    </section>
-
-    <section id="selection">
-      <div class="wrap">
-        <div class="section-head">
-          <h2>من يمكنه التقديم؟</h2>
-          <p>البرنامج موجّه للمتخصصين والمهتمين مهنياً في علوم المختبرات الطبية والاختبارات والتخصصات المخبرية ذات الصلة.</p>
-        </div>
-        <div class="grid" style="margin-bottom:24px">
-          <article class="card"><h3>ملاءمة التخصص</h3><p>خلفية تعليمية أو مهنية مرتبطة بالمختبرات الطبية أو التشخيص أو الاختبارات أو مسار مخبري قريب.</p></article>
-          <article class="card"><h3>الالتزام</h3><p>الاستعداد لتخصيص نحو 4–5 ساعات أسبوعياً، وإكمال المهام وحضور المتابعات.</p></article>
-          <article class="card"><h3>الاستعداد للتطوير</h3><p>وجود هدف مهني واضح نسبياً، وقبول التقييم والملاحظات والعمل على التحسين.</p></article>
-        </div>
-        <h3 style="font-size:23px;margin:26px 0 15px">معايير المفاضلة</h3>
-        <div class="criteria">
-          <div class="criterion"><div class="line"><span>ملاءمة التخصص</span><span>15%</span></div><div class="bar"><i style="width:15%"></i></div></div>
-          <div class="criterion"><div class="line"><span>وضوح الهدف المهني</span><span>10%</span></div><div class="bar"><i style="width:10%"></i></div></div>
-          <div class="criterion"><div class="line"><span>الأدلة والإمكانات الحالية</span><span>10%</span></div><div class="bar"><i style="width:10%"></i></div></div>
-          <div class="criterion"><div class="line"><span>الالتزام والوقت</span><span>20%</span></div><div class="bar"><i style="width:20%"></i></div></div>
-          <div class="criterion"><div class="line"><span>قابلية التطور والتعلم</span><span>15%</span></div><div class="bar"><i style="width:15%"></i></div></div>
-          <div class="criterion"><div class="line"><span>التواصل والمشاركة</span><span>10%</span></div><div class="bar"><i style="width:10%"></i></div></div>
-          <div class="criterion"><div class="line"><span>الجاهزية الحالية للملف المهني</span><span>10%</span></div><div class="bar"><i style="width:10%"></i></div></div>
-          <div class="criterion"><div class="line"><span>مقابلة/محادثة الاختيار</span><span>10%</span></div><div class="bar"><i style="width:10%"></i></div></div>
-        </div>
-        <div class="notice">تُراجع الأهلية أولاً، ثم تُقيّم الطلبات وفق الأوزان المعلنة. لا يعني استيفاء الحد الأدنى ضمان القبول؛ فالاختيار تنافسي ويرتبط بجودة الطلب والطاقة الاستيعابية.</div>
-      </div>
-    </section>
-
-    <section id="apply" style="background:#eef6fa">
-      <div class="wrap">
-        <div class="section-head">
-          <h2>نموذج التقديم</h2>
-          <p>للتقديم أو تعبئة استبيانات المتابعة، استخدم بوابة النماذج. لن تُستقبل البيانات من نموذج المعاينة أدناه.</p><p><a class="btn" href="portal.html">الانتقال إلى بوابة LCAP</a></p>
-        </div>
-        <div class="form-shell">
-          <form id="applicationForm">
-            <div class="form-grid">
-              <div><label for="fullName">الاسم الكامل</label><input id="fullName" name="fullName" required placeholder="الاسم كما تفضّل ظهوره مهنياً"></div>
-              <div><label for="email">البريد الإلكتروني</label><input id="email" name="email" type="email" required placeholder="name@example.com"></div>
-              <div><label for="phone">رقم التواصل</label><input id="phone" name="phone" type="tel" required placeholder="رقم يمكن التواصل عبره"></div>
-              <div><label for="city">المدينة</label><input id="city" name="city" required placeholder="المدينة الحالية"></div>
-              <div><label for="degree">المؤهل/المرحلة التعليمية</label><input id="degree" name="degree" required placeholder="مثال: بكالوريوس علوم المختبرات الطبية"></div>
-              <div><label for="specialty">التخصص الدقيق</label><select id="specialty" name="specialty" required><option value="">اختر</option><option>علوم المختبرات الطبية</option><option>بنوك الدم ونقل الدم</option><option>الأحياء الدقيقة</option><option>الكيمياء السريرية</option><option>أمراض الدم والتخثر</option><option>الأحياء الجزيئية/الجينوم</option><option>الأنسجة والخلايا</option><option>الجودة والتشغيل المخبري</option><option>اختبارات/تشخيص مخبري آخر</option></select></div>
-              <div><label for="experience">سنوات الخبرة</label><select id="experience" name="experience"><option>طالب/ـة أو حديث تخرج</option><option>أقل من سنتين</option><option>2–5 سنوات</option><option>أكثر من 5 سنوات</option></select></div>
-              <div><label for="status">وضعك المهني الحالي</label><select id="status" name="status"><option>طالب/ـة</option><option>حديث تخرج</option><option>على رأس العمل</option><option>باحث عن فرصة</option><option>أرغب في تغيير المسار</option></select></div>
-              <div class="full"><label for="linkedin">رابط LinkedIn</label><input id="linkedin" name="linkedin" type="url" placeholder="https://www.linkedin.com/in/..."></div>
-              <div class="full"><label for="cv">رابط السيرة الذاتية (اختياري في هذه المرحلة)</label><input id="cv" name="cv" type="url" placeholder="رابط خاص يمكن فتحه من فريق المراجعة"></div>
-              <div class="full"><label for="target">ما الأدوار أو المسارات المهنية التي تستهدفها؟</label><textarea id="target" name="target" required placeholder="اذكر نوع الوظائف أو الجهات أو المسارات التي ترغب في الوصول إليها."></textarea></div>
-              <div class="full"><label for="motivation">لماذا ترغب في الانضمام؟ وما أهم جانب تريد تطويره؟</label><textarea id="motivation" name="motivation" required placeholder="اكتب إجابة واضحة ومختصرة."></textarea></div>
-              <div class="full"><label class="consent"><input type="checkbox" required><span>أقر بصحة المعلومات، وأوافق على استخدامها لغرض تقييم طلبي والتواصل بشأن البرنامج فقط. وأفهم أن مشاركة ملفي مع أي جهة توظيف تحتاج إلى موافقة مستقلة مني.</span></label></div>
-            </div>
-            <div class="form-foot">
-              <button class="btn" type="submit">اختبار النموذج</button>
-              <span class="form-state" id="formState" role="status">المعاينة فقط — استقبال الطلبات غير مفعّل حالياً.</span>
-            </div>
-          </form>
-        </div>
-        <p class="disclaimer" style="margin-top:16px">لا يوجد ضمان بالحصول على وظيفة أو مقابلة. يركّز البرنامج على رفع الجاهزية المهنية وجودة أدوات البحث عن الفرص. لا تدخل معلومات حساسة في نسخة المعاينة؛ لا يتم إرسال البيانات أو حفظها من هذه الصفحة.</p>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <div class="wrap">
-      <span>مجتمع السيطرة المهنية | Professional Mastery Community</span>
-      <span>Laboratory Career Advancement Program · LCAP</span>
-    </div>
-  </footer>
-  <script>
-    document.getElementById("applicationForm").addEventListener("submit", function(event){
-      event.preventDefault();
-      document.getElementById("formState").textContent = "هذه نسخة معاينة فقط. لم يتم إرسال أي بيانات أو حفظها. سيتم فتح التقديم بعد ربط قناة استقبال آمنة.";
-      document.getElementById("formState").scrollIntoView({behavior:"smooth",block:"center"});
-    });
-  </script>
-</body>
-</html>
+<header><div class="wrap brand"><div class="mark">PMC</div><div>مجتمع السيطرة المهنية<small>PROFESSIONAL MASTERY COMMUNITY</small></div></div></header>
+<main class="wrap">
+<section class="hero"><div class="eyebrow">YOUR NEXT PROFESSIONAL STEP</div><h1>خطوتك المهنية <span>تبدأ هنا</span></h1><p>اختر الخدمة المناسبة، وأكمل بياناتك بخطوات بسيطة. نموذج واحد في كل شاشة، بدون تعقيد.</p></section>
+<section id="home" class="choices" aria-label="اختر الخدمة">
+<button class="choice" type="button" data-kind="cohort"><span class="n">01 / COHORT INTAKE</span><h2>التقديم للدفعات</h2><p>لمن يرغب بالانضمام إلى برامج ومسارات مجتمع السيطرة المهنية.</p><span class="arrow">←</span></button>
+<button class="choice" type="button" data-kind="workshop"><span class="n">02 / CAREER WORKSHOP</span><h2>حضور ورشة المسار المهني</h2><p>سجّل اهتمامك بالحضور أونلاين أو عبر دعوة خاصة.</p><span class="arrow">←</span></button>
+</section>
+<section id="panel" class="panel" aria-live="polite">
+<div class="eyebrow" id="kindTag"></div><h2 id="formTitle"></h2><p class="muted" id="formIntro"></p>
+<div class="progress"><i id="bar"></i></div><div class="counter" id="counter"></div>
+<form id="stepForm" novalidate><div id="question" class="question"></div>
+<div id="consentWrap" hidden class="consent"><input id="consent" type="checkbox" required><label for="consent">أوافق على استخدام بياناتي لغرض مراجعة هذا الطلب والتواصل بخصوصه وفق <a href="privacy.html" target="_blank" rel="noopener">إشعار الخصوصية</a>.</label></div>
+<div class="hp"><label>اترك هذا الحقل فارغاً<input name="website" tabindex="-1" autocomplete="off"></label></div>
+<div class="buttons"><button class="btn secondary" id="back" type="button">السابق</button><button class="btn primary" id="next" type="button">التالي</button><button class="btn primary" id="send" type="submit" hidden>إرسال الطلب</button></div><div id="status" class="status" role="status"></div>
+</form><a href="#" id="change" class="backlink">← العودة لاختيار الخدمة</a>
+<div class="notice">لا يعني إرسال الطلب القبول في الدفعة أو تأكيد مقعد في الورشة. تتم مراجعة الطلبات والتواصل بشأنها من إدارة المجتمع.</div>
+</section>
+</main>
+<footer><div class="wrap">PMC · Professional Mastery Community</div></footer>
+<script>
+const ENDPOINT="https://formsubmit.co/ajax/Abdullah87a87@gmail.com";
+const data={
+cohort:{title:"التقديم للدفعات",tag:"COHORT APPLICATION",intro:"خلّنا نتعرف عليك. أجب عن الأسئلة التالية بالترتيب.",fields:[
+["name","وش اسمك الكامل؟","text","مثال: عبدالله محمد",true],
+["phone","ما رقم جوالك؟","tel","+966 5X XXX XXXX",true],
+["email","ما بريدك الإلكتروني؟","email","name@example.com",true],
+["specialty","ما تخصصك أو مجالك المهني؟","text","مثال: مختبرات طبية، إدارة، موارد بشرية",true],
+["goal","وش تتطلع تحققه من الانضمام؟","textarea","اكتب باختصار هدفك المهني",true],
+["track","أي مسار يهمك أكثر؟","select","",true,["المسار المهني","مسار الابتكار","مسار البحث","أرغب بالتعرف على المسارات"]]
+]},
+workshop:{title:"حضور ورشة المسار المهني",tag:"CAREER PATH WORKSHOP",intro:"سجّل بياناتك واهتمامك بالحضور. تفاصيل الموعد ورابط الدخول تُرسل بعد مراجعة التسجيل أو الدعوة.",fields:[
+["name","وش اسمك الكامل؟","text","مثال: عبدالله محمد",true],
+["phone","ما رقم جوالك؟","tel","+966 5X XXX XXXX",true],
+["email","ما بريدك الإلكتروني؟","email","name@example.com",true],
+["attendance","كيف تفضّل الحضور؟","select","",true,["أونلاين — عبر دعوة","حضوري — عند توفر مقعد","أي طريقة متاحة"]],
+["invite","هل لديك رمز دعوة؟ (اختياري)","text","أدخل الرمز إن وجد",false]
+]}
+};
+let kind=null,step=0,answers={};
+const $=id=>document.getElementById(id);
+function showQuestion(){
+ const fields=data[kind].fields, f=fields[step], host=$("question");host.innerHTML="";
+ const wrap=document.createElement("div");wrap.className="question";
+ const label=document.createElement("label");label.htmlFor="answer";label.textContent=f[1]+(f[4]?"":" — اختياري");
+ let input;
+ if(f[2]==="select"){input=document.createElement("select");input.add(new Option("اختر من القائمة",""));f[5].forEach(v=>input.add(new Option(v,v)));}
+ else if(f[2]==="textarea"){input=document.createElement("textarea");input.placeholder=f[3];}
+ else{input=document.createElement("input");input.type=f[2];input.placeholder=f[3];if(f[0]==="phone")input.autocomplete="tel";if(f[0]==="email")input.autocomplete="email";if(f[0]==="name")input.autocomplete="name";}
+ input.id="answer";input.name=f[0];input.required=f[4];input.value=answers[f[0]]||"";
+ wrap.append(label,input);host.append(wrap);
+ $("counter").textContent="السؤال "+(step+1)+" من "+fields.length;
+ $("bar").style.width=((step+1)/fields.length*100)+"%";
+ $("back").hidden=step===0;$("next").hidden=step===fields.length-1;$("send").hidden=step!==fields.length-1;
+ $("consentWrap").hidden=step!==fields.length-1;
+ $("status").textContent="";
+ setTimeout(()=>input.focus({preventScroll:true}),80);
+}
+function start(k){kind=k;step=0;answers={};$("home").hidden=true;$("panel").classList.add("show");$("formTitle").textContent=data[k].title;$("kindTag").textContent=data[k].tag;$("formIntro").textContent=data[k].intro;$("consent").checked=false;showQuestion();$("panel").scrollIntoView({behavior:"smooth",block:"start"});}
+function saveCurrent(){const input=$("answer");if(!input.reportValidity())return false;answers[input.name]=input.value.trim();return true;}
+document.querySelectorAll("[data-kind]").forEach(b=>b.addEventListener("click",()=>start(b.dataset.kind)));
+$("next").addEventListener("click",()=>{if(!saveCurrent())return;step++;showQuestion();});
+$("back").addEventListener("click",()=>{if(step>0){answers[$("answer").name]=$("answer").value.trim();step--;showQuestion();}});
+$("change").addEventListener("click",e=>{e.preventDefault();kind=null;$("panel").classList.remove("show");$("home").hidden=false;$("home").scrollIntoView({behavior:"smooth"});});
+$("stepForm").addEventListener("submit",async e=>{
+ e.preventDefault();if(!saveCurrent())return;if(!$("consent").checked){$("consent").focus();$("status").textContent="فضلاً وافق على إشعار الخصوصية قبل الإرسال.";return;}
+ const payload={...answers,request_type:data[kind].title,language:"ar",_subject:"PMC | "+data[kind].title,_template:"table",_captcha:"false"};
+ delete payload.website;$("send").disabled=true;$("status").textContent="جارٍ إرسال طلبك…";
+ try{const res=await fetch(ENDPOINT,{method:"POST",headers:{"Content-Type":"application/json","Accept":"application/json"},body:JSON.stringify(payload)});const result=await res.json();if(String(result.success)!=="true")throw new Error(result.message||"تعذر الإرسال");
+ $("status").textContent="وصل طلبك إلى خدمة الاستقبال. شكراً لاهتمامك بمجتمع السيطرة المهنية.";
+ $("stepForm").querySelectorAll("input,select,textarea,button").forEach(el=>{if(el.id!=="change")el.disabled=true;});
+ }catch(err){$("status").textContent="ما قدرنا نؤكد الإرسال الآن. حاول مرة ثانية بعد قليل.";$("send").disabled=false;}
+});
+</script>
+</body></html>
