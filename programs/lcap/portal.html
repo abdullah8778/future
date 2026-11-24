@@ -119,6 +119,8 @@ function render(){
 }
 function showStep(index){
  const steps=[...$("fields").querySelectorAll(".wizard-step")];
+ if(current!=="application"){steps.forEach(s=>s.hidden=false);$("wizardProgress").hidden=true;$("wizardActions").hidden=true;return;}
+ $("wizardProgress").hidden=false;$("wizardActions").hidden=false;
  if(index<0||index>=steps.length)return;
  stepIndex=index;
  steps.forEach((s,i)=>s.hidden=i!==index);
