@@ -36,7 +36,7 @@ function doPost(e) {
     sheet.appendRow([new Date(),ref,clean.formType,clean.email || '',JSON.stringify(clean),JSON.stringify(clean.sourceMeta || {}),JSON.stringify(clean.consentFlags || {}),clean.language || 'ar']);
     const admin = props.getProperty('ADMIN_EMAIL');
     MailApp.sendEmail({to:admin,subject:'PMC LCAP | '+clean.formType+' | '+ref,body:'A new LCAP form was received.\nReference: '+ref+'\nType: '+clean.formType+'\nReview the restricted response sheet.'});
-    if (clean.email && /^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/.test(clean.email)) {
+    if (clean.email && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(clean.email)) {
       MailApp.sendEmail({to:clean.email,subject:'تم استلام طلبك | PMC LCAP',body:'تم استلام النموذج بنجاح. رقم المتابعة: '+ref+'\nسيتم التواصل معك عند الحاجة. إرسال الطلب لا يعني القبول أو ضمان الحصول على وظيفة.'});
     }
     return json({ok:true,reference:ref});
@@ -60,7 +60,7 @@ function validate(data, schema) {
   schema.consent.forEach(key => {
     if (!data.consentFlags || data.consentFlags[key] !== true) throw new Error('Required consent missing: '+key);
   });
-  if (data.email && !/^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/.test(String(data.email))) throw new Error('Invalid email');
+  if (data.email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(String(data.email))) throw new Error('Invalid email');
   if (data.formType === 'weekly' && (Number(data.week)<1 || Number(data.week)>8)) throw new Error('Invalid week');
   if (data.formType === 'weekly' && (Number(data.confidence)<1 || Number(data.confidence)>5)) throw new Error('Invalid confidence');
   if (data.formType === 'feedback' && (Number(data.satisfaction)<1 || Number(data.satisfaction)>5)) throw new Error('Invalid satisfaction');
