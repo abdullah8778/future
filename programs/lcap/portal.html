@@ -19,36 +19,23 @@ nav{display:flex;gap:18px;flex-wrap:wrap}nav a{color:#fff;text-decoration:none;f
 @media(max-width:760px){.layout{grid-template-columns:1fr}.side{position:static;display:grid;grid-template-columns:1fr 1fr;gap:4px}.side button{font-size:13px}.grid{grid-template-columns:1fr}.field.full{grid-column:auto}.hero{padding:38px 0 26px}}
 </style></head>
 <body>
-<header class="top"><div class="wrap"><div class="brand">مجتمع السيطرة المهنية<small>PROFESSIONAL MASTERY COMMUNITY</small></div><nav aria-label="التنقل"><a href="#forms">النماذج</a><a href="privacy.html">الخصوصية</a><a href="index.html">عن البرنامج</a></nav></div></header>
-<section class="hero"><div class="wrap"><div class="eyebrow">LCAP / PARTICIPANT PORTAL</div><h1>بوابة التمكين المهني</h1><div class="en">LABORATORY CAREER ADVANCEMENT PROGRAM</div><p>مساحة موحدة للتقديم، وطلب المحادثة التعريفية، وتوثيق التقدم والفرص، ومشاركة تقييم البرنامج. اختر المسار المناسب وأكمل البيانات الضرورية فقط.</p></div></section>
-<main id="forms" class="wrap layout">
-<aside class="side" id="navforms" aria-label="اختيار النموذج">
-<button type="button" data-form="application" aria-current="true">01 · طلب الانضمام<span>التقديم للدفعة التأسيسية</span></button>
-<button type="button" data-form="discovery">02 · محادثة تعريفية<span>استكشاف المسار المناسب</span></button>
-<div class="notice" role="note">نماذج المتابعة والتقارير والتقييم متاحة للمشاركين المسجلين فقط، وسيتم تفعيلها عبر قناة وصول خاصة بعد اعتماد آلية تسجيل الدخول. لا ترسل هذه التحديثات عبر نموذج عام.</div>
-</aside>
+<header class="top"><div class="wrap"><div class="brand">مجتمع السيطرة المهنية<small>PROFESSIONAL MASTERY COMMUNITY</small></div><nav aria-label="التنقل"><a href="privacy.html">الخصوصية</a></nav></div></header>
+<section class="hero"><div class="wrap"><div class="eyebrow">PMC / CANDIDATE INTAKE</div><h1>طلب الانضمام</h1><div class="en">PROFESSIONAL MASTERY COMMUNITY</div><p>أكمل بياناتك المهنية. سيصل طلبك إلى إدارة المجتمع لمراجعته، وسيتم التواصل معك عند الحاجة.</p></div></section>
+<main id="forms" class="wrap layout" style="grid-template-columns:1fr">
 <section class="card" aria-live="polite"><h2 id="formTitle">طلب الانضمام</h2><p class="sub" id="formIntro"></p>
-<div class="notice">عند الإرسال، تُعالج بيانات النموذج عبر FormSubmit لإيصالها إلى بريد إدارة PMC، وتشير وثائق الخدمة إلى الاحتفاظ بالطلبات لمدة تصل إلى 30 يوماً. راجع <a href="privacy.html">إشعار الخصوصية</a>. لا ترسل بيانات صحية أو طبية أو أرقام هوية أو معلومات مرضى. لا يوجد ضمان بالقبول أو الحصول على مقابلة أو وظيفة، ولا يوجد رفع سيرة ذاتية في مرحلة التقديم الأولي.</div>
+<div class="notice">يرسل هذا النموذج بياناتك إلى بريد إدارة المجتمع فقط. لا توجد رسائل قبول أو رفض أو متابعة تلقائية. لا ترسل بيانات صحية أو طبية أو أرقام هوية أو معلومات مرضى. راجع <a href="privacy.html">إشعار الخصوصية</a>.</div>
 <form id="intake" novalidate><div id="fields" class="grid"></div>
 <div class="hp" aria-hidden="true"><label for="website">اترك هذا الحقل فارغاً</label><input id="website" name="website" tabindex="-1" autocomplete="off"></div>
 <div class="consents" id="consents"></div>
-<div class="actions"><button class="btn" id="submit" type="submit">إرسال النموذج</button><span class="status" id="status" role="status" aria-live="polite"></span></div></form>
+<div class="actions"><button class="btn" id="submit" type="submit">إرسال الطلب</button><span class="status" id="status" role="status" aria-live="polite"></span></div></form>
 </section></main>
-<footer><div class="wrap"><span>مجتمع السيطرة المهنية | PMC</span><span><a href="privacy.html">إشعار الخصوصية</a> · لا تُشارك بياناتك مع جهة توظيف دون موافقة مستقلة لاحقة.</span></div></footer>
+<footer><div class="wrap"><span>مجتمع السيطرة المهنية | PMC</span><span><a href="privacy.html">إشعار الخصوصية</a></span></div></footer>
 
 <script>
 const CONFIG={emailEndpoint:"https://formsubmit.co/ajax/Abdullah87a87@gmail.com"};
 const definitions={
-application:{title:"طلب الانضمام",intro:"للمهتمين بالدفعة التأسيسية المجانية ذات القبول الانتقائي. أكمل المعلومات المهنية الأساسية.",fields:[
-["name","الاسم الكامل","text",1],["email","البريد الإلكتروني","email",1],["phone","رقم التواصل","tel",1],["role","الدور أو الوضع المهني الحالي","select",1,"طالب/ـة|حديث تخرج|أخصائي/ـة|مشرف/ـة|إداري/ـة|باحث/ـة عن عمل|أخرى"],["specialty","التخصص أو المجال","text",1],["target","الدور أو الاتجاه المهني المستهدف","text",1],["goal","ما الهدف الأهم الذي تريد تحقيقه؟","textarea",1],["evidence","اذكر خبرة أو إنجازاً يدعم طلبك (دون بيانات سرية)","textarea",0],["hours","الوقت المتاح أسبوعياً","select",1,"1–2 ساعة|3–4 ساعات|5–6 ساعات|أكثر من 6 ساعات"],["start","متى تستطيع البدء؟","select",1,"فوراً|خلال أسبوعين|خلال شهر|لاحقاً"],["languages","اللغات ومستوى الاستخدام","text",1],["linkedin","رابط LinkedIn (اختياري)","url",0],["source","كيف عرفت بالبرنامج؟","select",1,"LinkedIn|WhatsApp|Telegram|ترشيح شخصي|فعالية/ورشة|أخرى"]]},
-discovery:{title:"طلب محادثة تعريفية",intro:"لمن يرغب في فهم المسار الأنسب قبل اتخاذ قرار المشاركة.",fields:[
-["name","الاسم","text",1],["email","البريد الإلكتروني","email",1],["phone","رقم التواصل","tel",1],["role","الدور الحالي","text",1],["target","المسار الذي تستهدفه","text",1],["timeline","الإطار الزمني لهدفك","select",1,"خلال شهر|خلال 3 أشهر|خلال 6 أشهر|أستكشف الخيارات"],["obstacle","أكبر عائق تواجهه حالياً","textarea",1],["interest","المسار الذي يهمك","select",1,"المجتمع المفتوح|برامج Mastery|المسار التنفيذي Executive"],["time","الأوقات المناسبة للمكالمة","text",1]]},
-opportunity:{title:"تقرير فرصة مهنية",intro:"للمشاركين المسجلين فقط. استخدم رمز المشارك بدلاً من مشاركة بيانات شخصية غير لازمة.",fields:[
-["code","رمز المشارك (مثال C01)","text",1],["event","نوع التحديث","select",1,"دعوة مقابلة|عرض وظيفي|رفض|انسحاب|توقف/لا يوجد رد|تحديث آخر"],["employer","نوع الجهة (دون معلومات سرية)","select",1,"حكومي|خاص|غير ربحي|أكاديمي/بحثي|أخرى"],["role","المسمى الوظيفي","text",1],["date","تاريخ الحدث","date",1],["stage","المرحلة الحالية","select",1,"تقديم|فرز أولي|مقابلة HR|مقابلة فنية|مقابلة نهائية|عرض|بعد القرار"],["next","الخطوة القادمة المطلوبة","textarea",1],["support","هل تحتاج دعماً من المدرب؟","textarea",0]]},
-weekly:{title:"التحديث الأسبوعي",intro:"شارك ما أنجزته وما يعيق تقدمك حتى تكون المتابعة عملية ومحددة.",fields:[
-["code","رمز المشارك","text",1],["week","رقم الأسبوع","number",1],["completed","المهام التي أنجزتها","textarea",1],["blockers","العوائق التي واجهتك","textarea",0],["hours","عدد الساعات المنفذة","number",1],["confidence","مستوى ثقتك بتقدمك (1–5)","select",1,"1|2|3|4|5"],["needs","الدعم الذي تحتاجه","textarea",0]]},
-feedback:{title:"تقييم البرنامج",intro:"رأيك يساعدنا على تحسين التجربة والمحتوى وآلية المتابعة.",fields:[
-["code","رمز المشارك (اختياري)","text",0],["satisfaction","مستوى رضاك (1–5)","select",1,"1|2|3|4|5"],["best","ما أكثر جانب كان مفيداً؟","textarea",1],["improve","ما الجانب الذي يحتاج إلى تحسين؟","textarea",1],["recommend","هل توصي بالبرنامج؟","select",1,"نعم|ربما|لا"]]}
+application:{title:"طلب الانضمام",intro:"أجب عن سؤال واحد في كل مرة. بعد الإرسال يصل الطلب إلى إدارة المجتمع فقط.",fields:[
+["name","الاسم الكامل","text",1],["phone","رقم الجوال مع رمز الدولة","tel",1],["specialty","التخصص أو المجال","text",1],["target","الاهتمام أو الاتجاه المهني","text",1],["role","الوضع المهني الحالي","select",1,"طالب/ـة|حديث تخرج|أخصائي/ـة|مشرف/ـة|إداري/ـة|باحث/ـة عن عمل|أخرى"],["email","البريد الإلكتروني","email",1],["goal","ما الذي تريد تحقيقه من الانضمام؟","textarea",1],["evidence","خبرة أو إنجاز يدعم طلبك (اختياري)","textarea",0],["hours","الوقت المتاح أسبوعياً","select",1,"1–2 ساعة|3–4 ساعات|5–6 ساعات|أكثر من 6 ساعات"],["start","متى تستطيع البدء؟","select",1,"فوراً|خلال أسبوعين|خلال شهر|لاحقاً"],["languages","اللغات ومستوى الاستخدام","text",0],["linkedin","رابط LinkedIn (اختياري)","url",0],["source","كيف عرفت بالمجتمع؟","select",1,"LinkedIn|WhatsApp|Telegram|ترشيح شخصي|فعالية/ورشة|أخرى"]]}
 };
 let current="application";
 const $=id=>document.getElementById(id);
@@ -100,18 +87,8 @@ function render(){
   }else showStep(stepIndex+1);
  });
  $("consents").replaceChildren();
- if(current==="application"){
-  const h=el("strong",{},"الموافقات");
-  $("consents").append(h,
-   consent("consentProvider","أوافق على معالجة بيانات هذا النموذج عبر FormSubmit لإيصاله إلى بريد إدارة PMC، وفق إشعار الخصوصية.",true),
-   consent("consentProcessing","أوافق على معالجة بياناتي لغرض إدارة طلبي والبرنامج.",true),
-   consent("consentContact","أوافق على التواصل معي عبر البريد أو WhatsApp بشأن البرنامج.",true),
-   consent("consentStory","أوافق اختيارياً على استخدام تجربة مشاركتي كشهادة أو دراسة حالة بعد مراجعة واعتماد النص قبل النشر.",false));
- }else if(current==="discovery"){
-  $("consents").append(consent("consentProvider","أوافق على معالجة بيانات هذا النموذج عبر FormSubmit لإيصاله إلى بريد إدارة PMC، وفق إشعار الخصوصية.",true),consent("consentContact","أوافق على التواصل معي لترتيب المحادثة التعريفية.",true));
- }else{
-  $("consents").append(consent("consentProvider","أوافق على معالجة بيانات هذا النموذج عبر FormSubmit لإيصاله إلى بريد إدارة PMC، وفق إشعار الخصوصية.",true),consent("consentProcessing","أوافق على استخدام هذه المعلومات لغرض إدارة البرنامج وتحسينه.",true));
- }
+ const h=el("strong",{},"الموافقة");
+  $("consents").append(h,consent("consentProvider","أوافق على معالجة بيانات طلبي وإرسالها إلى بريد إدارة PMC لغرض مراجعة طلب الانضمام، وفق إشعار الخصوصية.",true));
  $("wizardActions").hidden=current!=="application";
  $("status").textContent="";
  $("intake").reset();
@@ -130,21 +107,21 @@ function showStep(index){
  steps[index].querySelector("input,select,textarea")?.focus({preventScroll:true});
 }
 function consent(name,label,required){const l=el("label",{class:"check"}),i=el("input",{type:"checkbox",name,required:required?"required":""}),s=el("span",{},label);l.append(i,s);return l}
-$("navforms").addEventListener("click",e=>{const b=e.target.closest("button[data-form]");if(!b)return;current=b.dataset.form;document.querySelectorAll("#navforms button").forEach(x=>x.setAttribute("aria-current",String(x===b)));render()});
 function sourceMeta(){const q=new URLSearchParams(location.search);return {utm_source:q.get("utm_source")||"",utm_medium:q.get("utm_medium")||"",utm_campaign:q.get("utm_campaign")||"",ref:q.get("ref")||document.referrer||""}}
 $("intake").addEventListener("submit",async e=>{e.preventDefault();const f=e.currentTarget;if(!f.reportValidity())return;
 const data=Object.fromEntries(new FormData(f).entries());data.formType=current;data.formUrl=location.href;data.sourceMeta=JSON.stringify(sourceMeta());data.language="ar";
 data.consent_external_provider=f.elements.consentProvider?.checked?"yes":"no";data.consent_processing=f.elements.consentProcessing?.checked?"yes":"no";data.consent_contact=f.elements.consentContact?.checked?"yes":"no";data.consent_testimonial=f.elements.consentStory?.checked?"yes":"no";
-data._honey=data.website||"";delete data.website;data._subject="PMC LCAP | "+definitions[current].title;data._template="table";if(data.email)data._replyto=data.email;
+data._honey=data.website||"";delete data.website;const submittedAt=new Date();
+const candidateRef="PMC-"+submittedAt.toISOString().replace(/[-:T.Z]/g,"").slice(0,14);
+data.candidate_reference=candidateRef;
+data._subject="مرشح جديد | "+candidateRef+" | PMC";data._template="table";if(data.email)data._replyto=data.email;
 $("submit").disabled=true;$("status").textContent="جارٍ إرسال الطلب…";
 try{const response=await fetch(CONFIG.emailEndpoint,{method:"POST",headers:{"Content-Type":"application/json","Accept":"application/json"},body:JSON.stringify(data)});const result=await response.json();
 if(String(result.success)!=="true"){const message=String(result.message||"تعذر إتمام الإرسال");if(/activat/i.test(message)){ $("status").textContent="يلزم تفعيل بريد الإدارة أول مرة. افتح رسالة FormSubmit الواردة إلى بريد الإدارة واضغط Activate Form، ثم أعد تجربة النموذج. لم نعرض الطلب كأنه مستلم.";return;}throw new Error(message)}
-$("status").textContent="تم إرسال النموذج إلى خدمة الاستقبال. راجع بريد الإدارة لتأكيد وصوله.";
+$("status").textContent="تم إرسال الطلب إلى خدمة الاستقبال. رقم المرجع: "+candidateRef+". راجع بريد الإدارة للتأكد من وصوله.";
 f.reset();
 }catch(err){$("status").textContent="تعذر تأكيد الإرسال: "+String(err.message||"خطأ اتصال")+". لم نعرض الطلب كأنه وصل."}
 finally{$("submit").disabled=false}
 });;
-const requestedForm=new URLSearchParams(location.search).get("form");
-if(requestedForm==="discovery"){current="discovery";document.querySelectorAll("#navforms button").forEach(b=>b.setAttribute("aria-current",String(b.dataset.form===current)));}
 render();
 </script></body></html>
