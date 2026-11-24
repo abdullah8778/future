@@ -1,26 +1,127 @@
 <!doctype html>
-<html lang="ar" dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>بوابة LCAP | مجتمع السيطرة المهنية</title>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>بوابة LCAP | مجتمع السيطرة المهنية</title>
+<meta name="description" content="بوابة برنامج التمكين المهني للكفاءات المخبرية من مجتمع السيطرة المهنية. التقديم، المكالمات التعريفية، متابعة التقدم، وتوثيق الفرص.">
+<meta property="og:type" content="website"><meta property="og:title" content="بوابة LCAP | مجتمع السيطرة المهنية"><meta property="og:description" content="منظومة التقديم والمتابعة المهنية لبرنامج LCAP.">
+<meta name="theme-color" content="#0B2545">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
 <style>
-:root{--r:#c6283d;--ink:#182b3d;--mut:#607080;--blue:#e8f4fa;--line:#dce5eb}*{box-sizing:border-box}body{margin:0;background:#f7fafc;color:var(--ink);font:16px/1.8 system-ui,-apple-system,"Segoe UI",sans-serif}.wrap{width:min(900px,92%);margin:auto}.head{background:white;border-bottom:1px solid var(--line);padding:20px 0}.brand{font-weight:800;color:var(--r)}h1{font-size:clamp(28px,5vw,42px);line-height:1.3;margin:26px 0 8px}.muted{color:var(--mut)}.panel{background:white;border:1px solid var(--line);border-radius:16px;padding:24px;margin:22px 0}.tabs{display:flex;flex-wrap:wrap;gap:8px}.tabs button{border:1px solid var(--line);background:white;padding:10px 14px;border-radius:9px;font:inherit;cursor:pointer}.tabs button.active{background:var(--r);color:white;border-color:var(--r)}.grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}.full{grid-column:1/-1}label{display:block;font-weight:650;font-size:14px;margin-bottom:5px}input,select,textarea{width:100%;padding:11px;border:1px solid #cbd6de;border-radius:8px;font:inherit;background:#fff}textarea{min-height:95px}.btn{border:0;background:var(--r);color:white;border-radius:9px;padding:12px 20px;font:inherit;font-weight:700;cursor:pointer}.hint{background:var(--blue);padding:13px;border-radius:10px;font-size:14px}.status{font-weight:700;color:var(--r)}.hp{position:absolute;left:-9999px}@media(max-width:600px){.grid{grid-template-columns:1fr}.full{grid-column:auto}.panel{padding:16px}}
-</style><script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script></head>
-<body><header class="head"><div class="wrap"><div class="brand">مجتمع السيطرة المهنية | PROFESSIONAL MASTERY COMMUNITY</div></div></header>
-<main class="wrap"><h1>بوابة برنامج التمكين المهني للكفاءات المخبرية</h1><p class="muted">Laboratory Career Advancement Program · LCAP</p><p>اختر النموذج المناسب. لا تستخدم هذه البوابة لإرسال معلومات حساسة أو طبية.</p>
-<div class="panel"><div class="tabs" id="tabs"></div><p class="hint" id="intro"></p><form id="f"><div id="fields" class="grid"></div><div class="hp"><label>Website<input name="website" tabindex="-1" autocomplete="off"></label></div><div style="margin:18px 0" class="cf-turnstile" id="captcha"></div><button class="btn" type="submit">إرسال النموذج</button> <span class="status" id="status" role="status"></span></form></div>
-<p class="muted">الإرسال لا يعني القبول أو ضمان الحصول على وظيفة. تُستخدم البيانات لإدارة البرنامج والتواصل بشأنه فقط، ولا تتم مشاركة ملفك مع جهة توظيف دون موافقة منفصلة.</p></main>
+:root{--navy:#0B2545;--navy2:#13315C;--red:#D7263D;--paper:#F4F0E6;--ink:#20262E;--muted:#596575;--line:#DCD5C4;--white:#fff}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.85 "Tajawal",sans-serif}
+a{color:var(--navy2)}.wrap{width:min(1080px,92%);margin:auto}.top{background:var(--navy);color:#fff;border-bottom:4px solid var(--red)}.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:18px;padding:18px 0;flex-wrap:wrap}.brand{font-weight:800;font-size:18px}.brand small{display:block;font:11px "IBM Plex Mono",monospace;direction:ltr;text-align:right;opacity:.8;letter-spacing:.08em}
+nav{display:flex;gap:18px;flex-wrap:wrap}nav a{color:#fff;text-decoration:none;font-size:14px}nav a:focus-visible,button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid var(--red);outline-offset:3px}
+.hero{padding:58px 0 36px;background:linear-gradient(135deg,var(--paper),#fff);border-bottom:1px solid var(--line)}.eyebrow{font:12px "IBM Plex Mono",monospace;color:var(--red);letter-spacing:.08em}.hero h1{font-size:clamp(32px,5vw,54px);line-height:1.2;color:var(--navy);margin:12px 0}.hero p{max-width:760px;color:var(--muted);font-size:18px;margin:12px 0}.hero .en{font:13px "IBM Plex Mono",monospace;color:var(--muted);direction:ltr;text-align:right}
+.layout{display:grid;grid-template-columns:260px 1fr;gap:22px;padding:30px 0 55px}.side,.card{background:var(--white);border:1px solid var(--line);border-radius:14px}.side{padding:14px;height:max-content;position:sticky;top:14px}.side button{display:block;width:100%;text-align:right;background:transparent;border:0;border-radius:9px;padding:12px;color:var(--navy);font:600 15px "Tajawal";cursor:pointer}.side button[aria-current=true]{background:var(--navy);color:white}.side button span{display:block;font-size:12px;font-weight:400;opacity:.8}.card{padding:clamp(18px,3vw,30px)}.card h2{margin:0;color:var(--navy);font-size:28px}.sub{color:var(--muted);margin:4px 0 20px}.notice{background:#f8f6f0;border-right:4px solid var(--red);padding:12px 15px;border-radius:8px;color:var(--ink);font-size:14px;margin:16px 0}.grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}.field.full{grid-column:1/-1}label{display:block;font-weight:700;font-size:14px;margin-bottom:5px}input,select,textarea{width:100%;border:1px solid #b9b3a6;border-radius:8px;padding:11px 12px;background:#fff;color:var(--ink);font:16px "Tajawal"}textarea{min-height:105px;resize:vertical}.consents{border-top:1px solid var(--line);margin-top:22px;padding-top:15px}.check{display:flex;align-items:flex-start;gap:10px;margin:10px 0;font-size:14px;color:var(--ink)}.check input{width:18px;height:18px;flex:0 0 18px;margin-top:5px}.actions{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin-top:20px}.btn{border:1px solid var(--red);border-radius:8px;background:var(--red);color:white;padding:12px 22px;font:700 16px "Tajawal";cursor:pointer}.btn:disabled{opacity:.55;cursor:wait}.status{font-weight:600;color:var(--navy);min-height:28px}.wizard-step[hidden]{display:none}.hp{position:absolute!important;left:-10000px!important;width:1px!important;height:1px!important;overflow:hidden!important}.captcha{margin-top:18px}footer{background:var(--navy);color:white;padding:22px 0;font-size:13px}footer .wrap{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}footer a{color:white}
+@media(max-width:760px){.layout{grid-template-columns:1fr}.side{position:static;display:grid;grid-template-columns:1fr 1fr;gap:4px}.side button{font-size:13px}.grid{grid-template-columns:1fr}.field.full{grid-column:auto}.hero{padding:38px 0 26px}}
+</style></head>
+<body>
+<header class="top"><div class="wrap"><div class="brand">مجتمع السيطرة المهنية<small>PROFESSIONAL MASTERY COMMUNITY</small></div><nav aria-label="التنقل"><a href="privacy.html">الخصوصية</a></nav></div></header>
+<section class="hero"><div class="wrap"><div class="eyebrow">PMC / CANDIDATE INTAKE</div><h1>طلب الانضمام</h1><div class="en">PROFESSIONAL MASTERY COMMUNITY</div><p>أكمل بياناتك المهنية. سيصل طلبك إلى إدارة المجتمع لمراجعته، وسيتم التواصل معك عند الحاجة.</p></div></section>
+<main id="forms" class="wrap layout" style="grid-template-columns:1fr">
+<section class="card" aria-live="polite"><h2 id="formTitle">طلب الانضمام</h2><p class="sub" id="formIntro"></p>
+<div class="notice">يرسل هذا النموذج بياناتك إلى بريد إدارة المجتمع فقط. لا توجد رسائل قبول أو رفض أو متابعة تلقائية. لا ترسل بيانات صحية أو طبية أو أرقام هوية أو معلومات مرضى. راجع <a href="privacy.html">إشعار الخصوصية</a>.</div>
+<form id="intake" novalidate><div id="fields" class="grid"></div>
+<div class="hp" aria-hidden="true"><label for="website">اترك هذا الحقل فارغاً</label><input id="website" name="website" tabindex="-1" autocomplete="off"></div>
+<div class="consents" id="consents"></div>
+<div class="actions"><button class="btn" id="submit" type="submit">إرسال الطلب</button><span class="status" id="status" role="status" aria-live="polite"></span></div></form>
+</section></main>
+<footer><div class="wrap"><span>مجتمع السيطرة المهنية | PMC</span><span><a href="privacy.html">إشعار الخصوصية</a></span></div></footer>
+
 <script>
-const CONFIG={endpoint:"PASTE_APPS_SCRIPT_WEB_APP_URL",turnstileSiteKey:"PASTE_TURNSTILE_SITE_KEY"};
-const forms={
-application:{title:"طلب الانضمام",intro:"للتقديم الأولي. لا ترفق مستندات حساسة؛ قد يُطلب ملف مهني لاحقاً من المرشحين المؤهلين.",fields:[["name","الاسم الكامل","text",true],["email","البريد الإلكتروني","email",true],["phone","رقم التواصل","tel",true],["city","المدينة","text",true],["education","المؤهل/المرحلة","text",true],["specialty","التخصص الدقيق","text",true],["experience","الخبرة","select",true,"طالب/حديث تخرج|أقل من سنتين|2–5 سنوات|أكثر من 5 سنوات"],["status","الوضع المهني","select",true,"طالب|حديث تخرج|على رأس العمل|باحث عن فرصة|تغيير مسار"],["linkedin","رابط LinkedIn","url",false],["target","المسار المستهدف","textarea",true],["motivation","لماذا تريد الانضمام؟","textarea",true],["availability","الوقت المتاح أسبوعياً","select",true,"2–3 ساعات|4–5 ساعات|6 ساعات فأكثر"]]},
-baseline:{title:"تقييم خط الأساس",intro:"يُستخدم لتحديد نقطة البداية وخطة التطوير الفردية.",fields:[["email","البريد المسجل","email",true],["linkedinScore","تقييمك الحالي لملف LinkedIn من 1 إلى 10","number",true],["cvScore","تقييمك الحالي للسيرة من 1 إلى 10","number",true],["targetRoles","ثلاثة أدوار تستهدفها","textarea",true],["strengths","أقوى ثلاث نقاط لديك","textarea",true],["gaps","أهم فجوات تحتاج تطويرها","textarea",true],["success","ما النتيجة التي تعتبرها تقدماً بعد 8 أسابيع؟","textarea",true]]},
-weekly:{title:"التحديث الأسبوعي",intro:"أرسل تحديثاً مختصراً كل أسبوع لتسهيل المتابعة وإزالة العوائق.",fields:[["email","البريد المسجل","email",true],["week","رقم الأسبوع","select",true,"1|2|3|4|5|6|7|8"],["completed","المهام المنجزة","textarea",true],["progress","التقدم أو الإنجاز هذا الأسبوع","textarea",true],["blockers","العوائق/الدعم المطلوب","textarea",false],["next","خطوتك القادمة وموعدها","textarea",true],["status","حالتك","select",true,"أخضر — على المسار|أصفر — تأخير بسيط|أحمر — أحتاج تدخلاً"]]},
-interview:{title:"تحديث مقابلة وظيفية",intro:"استخدمه عند تلقي دعوة أو بعد إجراء مقابلة؛ أبلغ مدير البرنامج سريعاً إذا كان الموعد خلال 72 ساعة.",fields:[["email","البريد المسجل","email",true],["company","الجهة","text",true],["role","المسمى الوظيفي","text",true],["date","تاريخ المقابلة","date",true],["stage","المرحلة","select",true,"دعوة أولية|مقابلة HR|مقابلة فنية|مقابلة نهائية|بعد المقابلة"],["result","النتيجة/التحديث","textarea",false],["support","الدعم المطلوب","textarea",false],["followup","موعد المتابعة المتوقع","date",false]]},
-followup30:{title:"متابعة 30 يوماً",intro:"قياس استمرار التنفيذ بعد انتهاء البرنامج.",fields:[["email","البريد المسجل","email",true],["applications","عدد الطلبات منذ التخرج","number",true],["interviews","عدد المقابلات","number",true],["offers","العروض أو الانتقالات","number",true],["progress","أبرز تقدم تحقق","textarea",true],["next","أهم خطوة خلال الشهر القادم","textarea",true],["support","ما الدعم الذي تحتاجه؟","textarea",false]]},
-followup60:{title:"متابعة 60 يوماً",intro:"قياس الأثر النهائي وتحديد خطة الاستمرار.",fields:[["email","البريد المسجل","email",true],["applications","عدد الطلبات منذ التخرج","number",true],["interviews","عدد المقابلات","number",true],["offers","العروض أو الانتقالات","number",true],["current","وضعك المهني الحالي","select",true,"أبحث عن فرصة|على رأس العمل|انتقلت إلى دور جديد|أدرس/أتدرب|أطور مساري الحالي"],["impact","ما الذي تغير بفضل البرنامج؟","textarea",true],["feedback","ملاحظاتك واقتراحاتك","textarea",true]]},
-ambassador:{title:"ترشيح ممثل/سفير",intro:"لتحديد المرشحين للمساهمة في التعريف بالبرنامج وتنظيم الورشة التمهيدية.",fields:[["name","الاسم","text",true],["email","البريد","email",true],["phone","رقم التواصل","tel",true],["institution","الجامعة/الجهة","text",true],["specialty","التخصص","text",true],["contribution","كيف يمكن أن تساهم؟","textarea",true],["availability","الأوقات المناسبة","text",true]]}
+const CONFIG={emailEndpoint:"https://formsubmit.co/ajax/Abdullah87a87@gmail.com"};
+const definitions={
+application:{title:"طلب الانضمام",intro:"أجب عن سؤال واحد في كل مرة. بعد الإرسال يصل الطلب إلى إدارة المجتمع فقط.",fields:[
+["name","الاسم الكامل","text",1],["phone","رقم الجوال مع رمز الدولة","tel",1],["specialty","التخصص أو المجال","text",1],["target","الاهتمام أو الاتجاه المهني","text",1],["role","الوضع المهني الحالي","select",1,"طالب/ـة|حديث تخرج|أخصائي/ـة|مشرف/ـة|إداري/ـة|باحث/ـة عن عمل|أخرى"],["email","البريد الإلكتروني","email",1],["goal","ما الذي تريد تحقيقه من الانضمام؟","textarea",1],["evidence","خبرة أو إنجاز يدعم طلبك (اختياري)","textarea",0],["hours","الوقت المتاح أسبوعياً","select",1,"1–2 ساعة|3–4 ساعات|5–6 ساعات|أكثر من 6 ساعات"],["start","متى تستطيع البدء؟","select",1,"فوراً|خلال أسبوعين|خلال شهر|لاحقاً"],["languages","اللغات ومستوى الاستخدام","text",0],["linkedin","رابط LinkedIn (اختياري)","url",0],["source","كيف عرفت بالمجتمع؟","select",1,"LinkedIn|WhatsApp|Telegram|ترشيح شخصي|فعالية/ورشة|أخرى"]]}
 };
-let active=new URLSearchParams(location.search).get("form");if(!forms[active])active="application";
-const tabs=document.getElementById("tabs"),fields=document.getElementById("fields"),intro=document.getElementById("intro"),form=document.getElementById("f");
-function render(){tabs.innerHTML="";Object.entries(forms).forEach(([key,v])=>{let b=document.createElement("button");b.type="button";b.textContent=v.title;b.className=key===active?"active":"";b.onclick=()=>{active=key;render()};tabs.append(b)});intro.textContent=forms[active].intro;fields.innerHTML="";forms[active].fields.forEach(([name,label,type,required,opts])=>{let wrap=document.createElement("div");if(type==="textarea")wrap.className="full";let l=document.createElement("label");l.textContent=label;let el;if(type==="select"){el=document.createElement("select");el.innerHTML='<option value="">اختر</option>'+opts.split("|").map(x=>'<option>'+x+'</option>').join("")}else if(type==="textarea"){el=document.createElement("textarea")}else{el=document.createElement("input");el.type=type;if(type==="number"){el.min=0;el.max=10}}el.name=name;el.required=required;l.htmlFor=name;el.id=name;wrap.append(l,el);fields.append(wrap)});document.getElementById("captcha").innerHTML="";if(CONFIG.turnstileSiteKey.startsWith("0x"))turnstile.render("#captcha",{sitekey:CONFIG.turnstileSiteKey});}
+let current="application";
+const $=id=>document.getElementById(id);
+function el(tag,attrs={},text=""){const n=document.createElement(tag);Object.entries(attrs).forEach(([k,v])=>n.setAttribute(k,v));if(text)n.textContent=text;return n}
+
+let stepIndex=0;
+function render(){
+ const d=definitions[current];
+ $("formTitle").textContent=d.title;
+ $("formIntro").textContent=d.intro;
+ $("fields").replaceChildren();
+ stepIndex=0;
+ let fieldList=[...d.fields];
+ if(current==="application"){
+  const order=["name","phone","specialty","target","role","email","goal","evidence","hours","start","languages","linkedin","source"];
+  fieldList.sort((a,b)=>order.indexOf(a[0])-order.indexOf(b[0]));
+ }
+ fieldList.forEach(([name,label,type,required,opts])=>{
+  const box=el("div",{class:(type==="textarea"?"field full":"field")+" wizard-step"});
+  const id="f_"+name,l=el("label",{for:id},label);
+  let input;
+  if(type==="select"){
+   input=el("select",{id,name}); if(required)input.required=true;
+   input.append(el("option",{value:""},"اختر"));
+   opts.split("|").forEach(v=>input.append(el("option",{value:v},v)));
+  }else if(type==="textarea"){
+   input=el("textarea",{id,name}); if(required)input.required=true;
+  }else{
+   input=el("input",{id,name,type}); if(required)input.required=true;
+   if(type==="number"){input.min=name==="week"?"1":"0";input.max=name==="confidence"?"5":"1000";}
+  }
+  box.append(l,input); $("fields").append(box);
+ });
+ const progress=el("div",{id:"wizardProgress",class:"sub"});
+ progress.style.cssText="font-weight:700;margin:0 0 12px;color:var(--red)";
+ const actions=el("div",{id:"wizardActions",class:"actions"});
+ const back=el("button",{type:"button",class:"btn",id:"wizardBack"},"السابق");
+ back.style.background="var(--navy)";back.style.borderColor="var(--navy)";
+ const next=el("button",{type:"button",class:"btn",id:"wizardNext"},"التالي");
+ actions.append(back,next);$("fields").before(progress);$("fields").after(actions);
+ back.addEventListener("click",()=>showStep(stepIndex-1));
+ next.addEventListener("click",()=>{
+  const active=$("fields").querySelectorAll(".wizard-step")[stepIndex];
+  const input=active.querySelector("input,select,textarea");
+  if(input&&!input.reportValidity())return;
+  if(stepIndex===fieldList.length-1){
+   $("consents").scrollIntoView({behavior:"smooth",block:"center"});
+   $("status").textContent="راجع الموافقات أدناه، ثم اضغط «إرسال النموذج».";
+  }else showStep(stepIndex+1);
+ });
+ $("consents").replaceChildren();
+ const h=el("strong",{},"الموافقة");
+  $("consents").append(h,consent("consentProvider","أوافق على معالجة بيانات طلبي وإرسالها إلى بريد إدارة PMC لغرض مراجعة طلب الانضمام، وفق إشعار الخصوصية.",true));
+ $("wizardActions").hidden=current!=="application";
+ $("status").textContent="";
+ $("intake").reset();
+ showStep(0);
+}
+function showStep(index){
+ const steps=[...$("fields").querySelectorAll(".wizard-step")];
+ if(current!=="application"){steps.forEach(s=>s.hidden=false);$("wizardProgress").hidden=true;$("wizardActions").hidden=true;return;}
+ $("wizardProgress").hidden=false;$("wizardActions").hidden=false;
+ if(index<0||index>=steps.length)return;
+ stepIndex=index;
+ steps.forEach((s,i)=>s.hidden=i!==index);
+ $("wizardProgress").textContent="السؤال "+(index+1)+" من "+steps.length;
+ $("wizardBack").hidden=index===0;
+ $("wizardNext").textContent=index===steps.length-1?"انتهيت — راجع الموافقات":"التالي";
+ steps[index].querySelector("input,select,textarea")?.focus({preventScroll:true});
+}
+function consent(name,label,required){const l=el("label",{class:"check"}),i=el("input",{type:"checkbox",name,required:required?"required":""}),s=el("span",{},label);l.append(i,s);return l}
+function sourceMeta(){const q=new URLSearchParams(location.search);return {utm_source:q.get("utm_source")||"",utm_medium:q.get("utm_medium")||"",utm_campaign:q.get("utm_campaign")||"",ref:q.get("ref")||document.referrer||""}}
+$("intake").addEventListener("submit",async e=>{e.preventDefault();const f=e.currentTarget;const requiredConsent=f.querySelector("#consents input[required]");if(requiredConsent&&!requiredConsent.checked){requiredConsent.reportValidity();return;}
+const data=Object.fromEntries(new FormData(f).entries());data.formType=current;data.formUrl=location.href;data.sourceMeta=JSON.stringify(sourceMeta());data.language="ar";
+data.consent_external_provider=f.elements.consentProvider?.checked?"yes":"no";data.consent_processing=f.elements.consentProcessing?.checked?"yes":"no";data.consent_contact=f.elements.consentContact?.checked?"yes":"no";data.consent_testimonial=f.elements.consentStory?.checked?"yes":"no";
+data._honey=data.website||"";delete data.website;const submittedAt=new Date();
+const candidateRef="PMC-"+submittedAt.toISOString().replace(/[-:T.Z]/g,"").slice(0,14);
+data.candidate_reference=candidateRef;
+data._subject="مرشح جديد | "+candidateRef+" | PMC";data._template="table";if(data.email)data._replyto=data.email;
+$("submit").disabled=true;$("status").textContent="جارٍ إرسال الطلب…";
+try{const response=await fetch(CONFIG.emailEndpoint,{method:"POST",headers:{"Content-Type":"application/json","Accept":"application/json"},body:JSON.stringify(data)});const result=await response.json();
+if(String(result.success)!=="true"){const message=String(result.message||"تعذر إتمام الإرسال");if(/activat/i.test(message)){ $("status").textContent="يلزم تفعيل بريد الإدارة أول مرة. افتح رسالة FormSubmit الواردة إلى بريد الإدارة واضغط Activate Form، ثم أعد تجربة النموذج. لم نعرض الطلب كأنه مستلم.";return;}throw new Error(message)}
+$("status").textContent="تم إرسال الطلب إلى خدمة الاستقبال. رقم المرجع: "+candidateRef+". راجع بريد الإدارة للتأكد من وصوله.";
+f.reset();
+}catch(err){$("status").textContent="تعذر تأكيد الإرسال: "+String(err.message||"خطأ اتصال")+". لم نعرض الطلب كأنه وصل."}
+finally{$("submit").disabled=false}
+});;
 render();
-form.addEventListener("submit",async e=>{e.preventDefault();const status=document.getElementById("status");if(CONFIG.endpoint.startsWith("PASTE_")||!CONFIG.turnstileSiteKey.startsWith("0x")){status.textContent="البوابة لم تُفعّل بعد؛ لا يمكن إرسال الطلب حالياً.";return}const token=turnstile.getResponse();if(!token){status.textContent="أكمل خطوة التحقق أولاً.";return}const data=Object.fromEntries(new FormData(form).entries());data.formType=active;const payload=new URLSearchParams();payload.set("payload",JSON.stringify(data));payload.set("turnstileToken",token);payload.set("website",data.website||"");status.textContent="جارٍ الإرسال…";try{await fetch(CONFIG.endpoint,{method:"POST",body:payload,mode:"no-cors"});status.textContent="تم إرسال النموذج. ستصلك رسالة تأكيد على بريدك إذا اكتملت المعالجة؛ إذا لم تصلك خلال دقائق فتواصل مع إدارة البرنامج للتحقق قبل إعادة الإرسال.";form.reset();turnstile.reset()}catch(err){status.textContent="تعذر تأكيد الإرسال. لا تعاود إرسال بيانات حساسة؛ تواصل مع إدارة البرنامج للتحقق.";turnstile.reset()}});
 </script></body></html>
