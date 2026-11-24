@@ -33,13 +33,13 @@ nav{display:flex;gap:18px;flex-wrap:wrap}nav a{color:#fff;text-decoration:none;f
 <div class="notice">لا ترسل بيانات صحية أو طبية أو أرقام هوية أو معلومات مرضى. لا يوجد ضمان بالقبول أو الحصول على مقابلة أو وظيفة. لا تطلب البوابة رفع سيرة ذاتية في مرحلة التقديم الأولي.</div>
 <form id="intake" novalidate><div id="fields" class="grid"></div>
 <div class="hp" aria-hidden="true"><label for="website">اترك هذا الحقل فارغاً</label><input id="website" name="website" tabindex="-1" autocomplete="off"></div>
-<div class="consents" id="consents"></div><div class="captcha"><div class="cf-turnstile" id="turnstile"></div></div>
+<div class="consents" id="consents"></div>
 <div class="actions"><button class="btn" id="submit" type="submit">إرسال النموذج</button><span class="status" id="status" role="status" aria-live="polite"></span></div></form>
 </section></main>
 <footer><div class="wrap"><span>مجتمع السيطرة المهنية | PMC</span><span><a href="privacy.html">إشعار الخصوصية</a> · لا تُشارك بياناتك مع جهة توظيف دون موافقة مستقلة لاحقة.</span></div></footer>
-<script src="https://challenges.cloudflare.com/turnstile/v0/api.js"></script>
+
 <script>
-const CONFIG={endpoint:"[SET BY TEAM: APPS_SCRIPT_WEB_APP_URL]",turnstileSiteKey:"[SET BY TEAM: TURNSTILE_SITE_KEY]"};
+const CONFIG={emailEndpoint:"https://formsubmit.co/ajax/Abdullah87a87@gmail.com"};
 const definitions={
 application:{title:"طلب الانضمام",intro:"للمهتمين بالدفعة التأسيسية المجانية ذات القبول الانتقائي. أكمل المعلومات المهنية الأساسية.",fields:[
 ["name","الاسم الكامل","text",1],["email","البريد الإلكتروني","email",1],["phone","رقم التواصل","tel",1],["role","الدور أو الوضع المهني الحالي","select",1,"طالب/ـة|حديث تخرج|أخصائي/ـة|مشرف/ـة|إداري/ـة|باحث/ـة عن عمل|أخرى"],["specialty","التخصص أو المجال","text",1],["target","الدور أو الاتجاه المهني المستهدف","text",1],["goal","ما الهدف الأهم الذي تريد تحقيقه؟","textarea",1],["evidence","اذكر خبرة أو إنجازاً يدعم طلبك (دون بيانات سرية)","textarea",0],["hours","الوقت المتاح أسبوعياً","select",1,"1–2 ساعة|3–4 ساعات|5–6 ساعات|أكثر من 6 ساعات"],["start","متى تستطيع البدء؟","select",1,"فوراً|خلال أسبوعين|خلال شهر|لاحقاً"],["languages","اللغات ومستوى الاستخدام","text",1],["linkedin","رابط LinkedIn (اختياري)","url",0],["source","كيف عرفت بالبرنامج؟","select",1,"LinkedIn|WhatsApp|Telegram|ترشيح شخصي|فعالية/ورشة|أخرى"]]},
@@ -52,7 +52,7 @@ weekly:{title:"التحديث الأسبوعي",intro:"شارك ما أنجزت�
 feedback:{title:"تقييم البرنامج",intro:"رأيك يساعدنا على تحسين التجربة والمحتوى وآلية المتابعة.",fields:[
 ["code","رمز المشارك (اختياري)","text",0],["satisfaction","مستوى رضاك (1–5)","select",1,"1|2|3|4|5"],["best","ما أكثر جانب كان مفيداً؟","textarea",1],["improve","ما الجانب الذي يحتاج إلى تحسين؟","textarea",1],["recommend","هل توصي بالبرنامج؟","select",1,"نعم|ربما|لا"]]}
 };
-let current="application",turnstileWidget=null;
+let current="application";
 const $=id=>document.getElementById(id);
 function el(tag,attrs={},text=""){const n=document.createElement(tag);Object.entries(attrs).forEach(([k,v])=>n.setAttribute(k,v));if(text)n.textContent=text;return n}
 function render(){const d=definitions[current];$("formTitle").textContent=d.title;$("formIntro").textContent=d.intro;$("fields").replaceChildren();
@@ -62,19 +62,21 @@ box.append(l,input);$("fields").append(box)});
 $("consents").replaceChildren();if(current==="application"){const h=el("strong",{},"الموافقات");$("consents").append(h,consent("consentProcessing","أوافق على معالجة بياناتي لغرض إدارة طلبي والبرنامج.",true),consent("consentContact","أوافق على التواصل معي عبر البريد أو WhatsApp بشأن البرنامج.",true),consent("consentStory","أوافق اختيارياً على استخدام تجربة مشاركتي كشهادة أو دراسة حالة بعد مراجعة واعتماد النص قبل النشر.",false))}
 else if(current==="discovery")$("consents").append(consent("consentContact","أوافق على التواصل معي لترتيب المحادثة التعريفية.",true));
 else $("consents").append(consent("consentProcessing","أوافق على استخدام هذه المعلومات لغرض إدارة البرنامج وتحسينه.",true));
-$("status").textContent="";$("intake").reset();if(window.turnstile&&turnstileWidget!==null){turnstile.remove(turnstileWidget);turnstileWidget=null}if(window.turnstile&&CONFIG.turnstileSiteKey.startsWith("0x"))turnstileWidget=turnstile.render("#turnstile",{sitekey:CONFIG.turnstileSiteKey})}
+$("status").textContent="";$("intake").reset();}
 function consent(name,label,required){const l=el("label",{class:"check"}),i=el("input",{type:"checkbox",name,required:required?"required":""}),s=el("span",{},label);l.append(i,s);return l}
 $("navforms").addEventListener("click",e=>{const b=e.target.closest("button[data-form]");if(!b)return;current=b.dataset.form;document.querySelectorAll("#navforms button").forEach(x=>x.setAttribute("aria-current",String(x===b)));render()});
 function sourceMeta(){const q=new URLSearchParams(location.search);return {utm_source:q.get("utm_source")||"",utm_medium:q.get("utm_medium")||"",utm_campaign:q.get("utm_campaign")||"",ref:q.get("ref")||document.referrer||""}}
 $("intake").addEventListener("submit",async e=>{e.preventDefault();const f=e.currentTarget;if(!f.reportValidity())return;
-if(!CONFIG.endpoint.startsWith("https://script.google.com/")||!CONFIG.turnstileSiteKey.startsWith("0x")){$("status").textContent="الاستقبال غير مفعّل بعد. لم يتم إرسال بياناتك.";return}
-const token=window.turnstile&&turnstileWidget!==null?turnstile.getResponse(turnstileWidget):"";if(!token){$("status").textContent="أكمل التحقق الأمني أولاً.";return}
-const data=Object.fromEntries(new FormData(f).entries());data.formType=current;data.sourceMeta=sourceMeta();data.language="ar";data.consentFlags={processing:!!f.elements.consentProcessing?.checked,contact:!!f.elements.consentContact?.checked,testimonial:!!f.elements.consentStory?.checked};
-const body=new URLSearchParams({payload:JSON.stringify(data),turnstileToken:token,website:data.website||""});
+const data=Object.fromEntries(new FormData(f).entries());data.formType=current;data.formUrl=location.href;data.sourceMeta=JSON.stringify(sourceMeta());data.language="ar";
+data.consent_processing=f.elements.consentProcessing?.checked?"yes":"no";data.consent_contact=f.elements.consentContact?.checked?"yes":"no";data.consent_testimonial=f.elements.consentStory?.checked?"yes":"no";
+data._honey=data.website||"";delete data.website;data._subject="PMC LCAP | "+definitions[current].title;data._template="table";if(data.email)data._replyto=data.email;
 $("submit").disabled=true;$("status").textContent="جارٍ إرسال الطلب…";
-try{const response=await fetch(CONFIG.endpoint,{method:"POST",body,mode:"cors",redirect:"follow"});const result=await response.json();if(!response.ok||!result.ok)throw new Error(result.message||"تعذر إتمام الإرسال");$("status").textContent="تم استلام طلبك. رقم المتابعة: "+result.reference;f.reset();if(window.turnstile&&turnstileWidget!==null)turnstile.reset(turnstileWidget)}
-catch(err){$("status").textContent="تعذر تأكيد الاستلام. لم نعرض الطلب كأنه وصل؛ حاول لاحقاً أو تواصل مع إدارة البرنامج.";if(window.turnstile&&turnstileWidget!==null)turnstile.reset(turnstileWidget)}
+try{const response=await fetch(CONFIG.emailEndpoint,{method:"POST",headers:{"Content-Type":"application/json","Accept":"application/json"},body:JSON.stringify(data)});const result=await response.json();
+if(String(result.success)!=="true"){const message=String(result.message||"تعذر إتمام الإرسال");if(/activat/i.test(message)){ $("status").textContent="يلزم تفعيل بريد الإدارة أول مرة. افتح رسالة FormSubmit الواردة إلى بريد الإدارة واضغط Activate Form، ثم أعد تجربة النموذج. لم نعرض الطلب كأنه مستلم.";return;}throw new Error(message)}
+$("status").textContent="تم إرسال النموذج إلى خدمة الاستقبال. راجع بريد الإدارة لتأكيد وصوله.";
+f.reset();
+}catch(err){$("status").textContent="تعذر تأكيد الإرسال: "+String(err.message||"خطأ اتصال")+". لم نعرض الطلب كأنه وصل."}
 finally{$("submit").disabled=false}
-});
+});;
 render();
 </script></body></html>
