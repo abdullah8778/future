@@ -55,3 +55,7 @@
 - [بوابة النماذج](portal.html)
 - [دليل التفعيل](ACTIVATION.md)
 - [Backend Apps Script](backend/Code.gs)
+
+- [دليل التشغيل](OPERATIONS_PLAYBOOK.md)
+- [خطة إطلاق الأسبوع](LAUNCH_WEEK.md)
+- [دليل النماذج والاستقصاءات](FORM_CATALOG.md)
