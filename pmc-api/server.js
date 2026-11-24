@@ -1,0 +1,32 @@
+const express=require('express');
+const helmet=require('helmet');
+const cors=require('cors');
+const rateLimit=require('express-rate-limit');
+const {Pool}=require('pg');
+const crypto=require('crypto');
+const app=express();
+const pool=new Pool({connectionString:process.env.DATABASE_URL,ssl:process.env.DATABASE_URL?.includes('railway.internal')?false:{rejectUnauthorized:false}});
+const ADMIN_EMAIL=(process.env.ADMIN_EMAIL||'').trim().toLowerCase();
+const ADMIN_PASSWORD=process.env.ADMIN_PASSWORD||'';
+const SESSION_SECRET=process.env.SESSION_SECRET||'';
+const ORIGIN=process.env.FORM_ORIGIN||'https://abdullah8778.github.io';
+if(!ADMIN_EMAIL||!ADMIN_PASSWORD||!SESSION_SECRET) throw new Error('Missing required admin environment variables');
+app.set('trust proxy',1);
+app.use(helmet({contentSecurityPolicy:false}));
+app.use(express.json({limit:'30kb'}));
+app.use(cors({origin:ORIGIN,methods:['POST','OPTIONS'],allowedHeaders:['Content-Type']}));
+app.use('/api/login',rateLimit({windowMs:15*60*1000,limit:8,standardHeaders:true,legacyHeaders:false}));
+app.use('/api/applications',rateLimit({windowMs:60*60*1000,limit:12,standardHeaders:true,legacyHeaders:false}));
+const sessions=new Map();
+const tokenHash=t=>crypto.createHmac('sha256',SESSION_SECRET).update(t).digest('hex');
+function auth(req,res,next){const raw=req.headers.cookie?.split(';').map(x=>x.trim()).find(x=>x.startsWith('pmc_admin='))?.slice(10);if(!raw)return res.sendStatus(401);const rec=sessions.get(tokenHash(raw));if(!rec||rec.exp<Date.now())return res.sendStatus(401);next();}
+app.get('/health',(_,res)=>res.json({ok:true}));
+app.post('/api/applications',async(req,res)=>{try{const b=req.body||{};const type=['program','workshop'].includes(b.type)?b.type:null;const required=['name','phone','email'];if(!type||required.some(k=>typeof b[k]!=='string'||!b[k].trim())||b.name.length>140||b.phone.length>35||b.email.length>180)return res.status(400).json({error:'بيانات غير مكتملة أو غير صحيحة'});const result=await pool.query('INSERT INTO applications(type,name,phone,email,field,goal,path,attendance,invite_code,created_at) VALUES($1,$2,$3,$4,$5,$6,$7,$8,$9,NOW()) RETURNING id,created_at',[type,b.name.trim(),b.phone.trim(),b.email.trim().toLowerCase(),(b.field||'').slice(0,180),(b.goal||'').slice(0,1200),(b.path||'').slice(0,100),(b.attendance||'').slice(0,100),(b.invite_code||'').slice(0,80)]);res.status(201).json({ok:true,id:result.rows[0].id});}catch(e){console.error(e);res.status(500).json({error:'تعذر حفظ الطلب حالياً'});}});
+app.use('/admin',express.static(__dirname+'/public'));
+app.post('/api/login',async(req,res)=>{const email=String(req.body?.email||'').trim().toLowerCase();const password=String(req.body?.password||'');const a=Buffer.from(email),b=Buffer.from(ADMIN_EMAIL),c=Buffer.from(password),d=Buffer.from(ADMIN_PASSWORD);const ok=a.length===b.length&&c.length===d.length&&crypto.timingSafeEqual(a,b)&&crypto.timingSafeEqual(c,d);if(!ok)return res.status(401).json({error:'بيانات الدخول غير صحيحة'});const token=crypto.randomBytes(32).toString('base64url');sessions.set(tokenHash(token),{exp:Date.now()+8*60*60*1000});res.setHeader('Set-Cookie','pmc_admin='+token+'; HttpOnly; Secure; SameSite=Strict; Path=/; Max-Age=28800');res.json({ok:true});});
+app.post('/api/logout',auth,(req,res)=>{const raw=req.headers.cookie?.split(';').map(x=>x.trim()).find(x=>x.startsWith('pmc_admin='))?.slice(10);if(raw)sessions.delete(tokenHash(raw));res.setHeader('Set-Cookie','pmc_admin=; HttpOnly; Secure; SameSite=Strict; Path=/; Max-Age=0');res.json({ok:true});});
+app.get('/api/admin/applications',auth,async(req,res)=>{try{const q=await pool.query('SELECT id,type,name,phone,email,field,goal,path,attendance,invite_code,status,created_at FROM applications ORDER BY created_at DESC');res.json({applications:q.rows});}catch(e){console.error(e);res.sendStatus(500);}});
+app.patch('/api/admin/applications/:id',auth,async(req,res)=>{const status=String(req.body?.status||'');if(!['new','reviewed','pending','closed'].includes(status))return res.sendStatus(400);try{const q=await pool.query('UPDATE applications SET status=$1 WHERE id=$2 RETURNING id',[status,req.params.id]);res.json({ok:q.rowCount===1});}catch(e){console.error(e);res.sendStatus(500);}});
+app.delete('/api/admin/applications/:id',auth,async(req,res)=>{try{const q=await pool.query('DELETE FROM applications WHERE id=$1 RETURNING id',[req.params.id]);res.json({ok:q.rowCount===1});}catch(e){console.error(e);res.sendStatus(500);}});
+async function boot(){await pool.query(`CREATE TABLE IF NOT EXISTS applications(id BIGSERIAL PRIMARY KEY,type TEXT NOT NULL,name TEXT NOT NULL,phone TEXT NOT NULL,email TEXT NOT NULL,field TEXT DEFAULT '',goal TEXT DEFAULT '',path TEXT DEFAULT '',attendance TEXT DEFAULT '',invite_code TEXT DEFAULT '',status TEXT NOT NULL DEFAULT 'new',created_at TIMESTAMPTZ NOT NULL DEFAULT NOW())`);app.listen(process.env.PORT||3000,'0.0.0.0',()=>console.log('PMC intake API ready'));}
+boot().catch(e=>{console.error(e);process.exit(1)});
