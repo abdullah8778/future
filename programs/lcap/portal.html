@@ -25,9 +25,7 @@ nav{display:flex;gap:18px;flex-wrap:wrap}nav a{color:#fff;text-decoration:none;f
 <aside class="side" id="navforms" aria-label="اختيار النموذج">
 <button type="button" data-form="application" aria-current="true">01 · طلب الانضمام<span>التقديم للدفعة التأسيسية</span></button>
 <button type="button" data-form="discovery">02 · محادثة تعريفية<span>استكشاف المسار المناسب</span></button>
-<button type="button" data-form="opportunity">03 · تقرير فرصة مهنية<span>دعوة أو مقابلة أو عرض</span></button>
-<button type="button" data-form="weekly">04 · التحديث الأسبوعي<span>المهام والعوائق والتقدم</span></button>
-<button type="button" data-form="feedback">05 · تقييم البرنامج<span>رأيك وتجربتك</span></button>
+<div class="notice" role="note">نماذج المتابعة والتقارير والتقييم متاحة للمشاركين المسجلين فقط، وسيتم تفعيلها عبر قناة وصول خاصة بعد اعتماد آلية تسجيل الدخول. لا ترسل هذه التحديثات عبر نموذج عام.</div>
 </aside>
 <section class="card" aria-live="polite"><h2 id="formTitle">طلب الانضمام</h2><p class="sub" id="formIntro"></p>
 <div class="notice">عند الإرسال، تُعالج بيانات النموذج عبر FormSubmit لإيصالها إلى بريد إدارة PMC، وتشير وثائق الخدمة إلى الاحتفاظ بالطلبات لمدة تصل إلى 30 يوماً. راجع <a href="privacy.html">إشعار الخصوصية</a>. لا ترسل بيانات صحية أو طبية أو أرقام هوية أو معلومات مرضى. لا يوجد ضمان بالقبول أو الحصول على مقابلة أو وظيفة، ولا يوجد رفع سيرة ذاتية في مرحلة التقديم الأولي.</div>
@@ -78,5 +76,7 @@ f.reset();
 }catch(err){$("status").textContent="تعذر تأكيد الإرسال: "+String(err.message||"خطأ اتصال")+". لم نعرض الطلب كأنه وصل."}
 finally{$("submit").disabled=false}
 });;
+const requestedForm=new URLSearchParams(location.search).get("form");
+if(requestedForm==="discovery"){current="discovery";document.querySelectorAll("#navforms button").forEach(b=>b.setAttribute("aria-current",String(b.dataset.form===current)));}
 render();
 </script></body></html>
