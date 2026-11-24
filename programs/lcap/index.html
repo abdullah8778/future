@@ -36,20 +36,20 @@ footer{text-align:center;color:#71849b;font-size:12px;padding:20px;border-top:1p
 <div class="hp"><label>اترك هذا الحقل فارغاً<input name="website" tabindex="-1" autocomplete="off"></label></div>
 <div class="buttons"><button class="btn secondary" id="back" type="button">السابق</button><button class="btn primary" id="next" type="button">التالي</button><button class="btn primary" id="send" type="submit" hidden>إرسال الطلب</button></div><div id="status" class="status" role="status"></div>
 </form><a href="#" id="change" class="backlink">← العودة لاختيار الخدمة</a>
-<div class="notice">لا يعني إرسال الطلب القبول في الدفعة أو تأكيد مقعد في الورشة. تتم مراجعة الطلبات والتواصل بشأنها من إدارة المجتمع.</div>
+<div class="notice">إرسال الطلب لا يعني القبول النهائي في البرنامج أو تأكيد مقعد في الورشة. تتم مراجعة الطلبات والتواصل بشأنها من إدارة المجتمع.</div>
 </section>
 </main>
 <footer><div class="wrap">PMC · Professional Mastery Community</div></footer>
 <script>
-const ENDPOINT="https://formsubmit.co/ajax/Abdullah87a87@gmail.com";
+const ENDPOINT="https://pmc-intake-api-production.up.railway.app/api/applications";
 const data={
-cohort:{title:"التقديم للدفعات",tag:"COHORT APPLICATION",intro:"خلّنا نتعرف عليك. أجب عن الأسئلة التالية بالترتيب.",fields:[
+cohort:{title:"الانضمام إلى برنامج السيطرة المهنية",tag:"PROFESSIONAL MASTERY PROGRAM",intro:"برنامج يساند الممارسين والطلاب في التخصصات الصحية لتطوير مسارهم المهني، وبناء مهاراتهم، وتحويل أفكارهم إلى مبادرات ومشاريع مؤثرة عبر مسارات مهنية وابتكارية وبحثية.",fields:[
 ["name","وش اسمك الكامل؟","text","مثال: عبدالله محمد",true],
 ["phone","ما رقم جوالك؟","tel","+966 5X XXX XXXX",true],
 ["email","ما بريدك الإلكتروني؟","email","name@example.com",true],
-["specialty","ما تخصصك أو مجالك المهني؟","text","مثال: مختبرات طبية، إدارة، موارد بشرية",true],
+["field","ما تخصصك الصحي؟","select","",true,["الطب","طب الأسنان","الصيدلة","التمريض","المختبرات الطبية","الأشعة والتصوير الطبي","العلاج الطبيعي","العلاج التنفسي","التغذية العلاجية","الصحة العامة","التخصصات الصحية الأخرى"]],
 ["goal","وش تتطلع تحققه من الانضمام؟","textarea","اكتب باختصار هدفك المهني",true],
-["track","أي مسار يهمك أكثر؟","select","",true,["المسار المهني","مسار الابتكار","مسار البحث","أرغب بالتعرف على المسارات"]]
+["path","أي مسار يهمك أكثر؟","select","",true,["المسار المهني","مسار الابتكار","مسار البحث","أرغب بالتعرف على المسارات"]]
 ]},
 workshop:{title:"حضور ورشة المسار المهني",tag:"CAREER PATH WORKSHOP",intro:"سجّل بياناتك واهتمامك بالحضور. تفاصيل الموعد ورابط الدخول تُرسل بعد مراجعة التسجيل أو الدعوة.",fields:[
 ["name","وش اسمك الكامل؟","text","مثال: عبدالله محمد",true],
